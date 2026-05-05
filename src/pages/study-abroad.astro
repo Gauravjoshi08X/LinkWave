@@ -1,0 +1,277 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const destinations = {
+  international: [
+    { name: 'United States', slug: 'u-s', flag: '🇺🇸', description: 'World\'s largest number of top-ranked universities with flexible education system and OPT opportunities.' },
+    { name: 'Canada', slug: 'canada', flag: '🇨🇦', description: 'Clear pathway to Permanent Residency with affordable tuition and post-study work permits up to 3 years.' },
+    { name: 'United Kingdom', slug: 'u-k', flag: '🇬🇧', description: 'Centuries of academic excellence with shorter course durations and 2-year post-study work visa.' },
+    { name: 'Australia', slug: 'australia', flag: '🇦🇺', description: '7 of world\'s top 100 universities with multicultural environment and post-study work rights.' },
+    { name: 'New Zealand', slug: 'new-zealand', flag: '🇳🇿', description: 'All 8 universities in global top 3% with safe environment and pathway to residency.' }
+  ],
+  europe: [
+    { name: 'France', slug: 'france', flag: '🇫🇷', description: 'Global leader in arts, fashion, and business with affordable public university tuition.' },
+    { name: 'Ireland', slug: 'ireland', flag: '🇮🇪', description: 'English-speaking EU hub for tech companies with 2-year post-study work visa.' },
+    { name: 'Finland', slug: 'finland', flag: '🇫🇮', description: 'World-famous education system focused on innovation, research, and student well-being.' },
+    { name: 'Denmark', slug: 'denmark', flag: '🇩🇰', description: 'Pioneer in sustainable energy and design with interactive, student-centered teaching.' },
+    { name: 'Germany', slug: 'germany', flag: '🇩🇪', description: 'Free or very low tuition at public universities with 18-month post-study job search visa.' },
+    { name: 'Netherlands', slug: 'the-netherlands', flag: '🇳🇱', description: 'Over 2,100 English-taught programs with innovative teaching and Orientation Year visa.' },
+    { name: 'Malta', slug: 'malta', flag: '🇲🇹', description: 'English-speaking Mediterranean EU country with affordable education and growing tech industry.' }
+  ],
+  asia: [
+    { name: 'India', slug: 'india', flag: '🇮🇳', description: 'Affordable quality education with globally recognized IITs, IIMs, and booming IT industry.' },
+    { name: 'Japan', slug: 'japan', flag: '🇯🇵', description: 'World leader in technology and robotics with generous MEXT scholarships for international students.' },
+    { name: 'Philippines', slug: 'philippines', flag: '🇵🇭', description: 'English-medium instruction at very affordable costs with excellent medical and nursing programs.' }
+  ]
+};
+---
+
+<MainLayout
+  title="Study Abroad | Explore 15+ Countries | Link Wave Global Study"
+  description="Explore study opportunities in 15+ countries including USA, UK, Canada, Australia, Germany, Japan and more. Expert guidance for international education."
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="reveal">Study Abroad Destinations</h1>
+      <p class="hero-subtitle reveal">Explore 15+ countries across 3 continents. Find your perfect study destination with expert guidance from Link Wave Global Study.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!-- International -->
+      <div class="continent-section reveal">
+        <h2 class="continent-heading">International</h2>
+        <div class="destinations-grid">
+          {destinations.international.map(dest => (
+            <a href={`/study-in-${dest.slug}`} class="destination-card">
+              <span class="card-flag">{dest.flag}</span>
+              <div class="card-content">
+                <h3>{dest.name}</h3>
+                <p>{dest.description}</p>
+                <span class="card-link">Learn More →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Europe -->
+      <div class="continent-section reveal">
+        <h2 class="continent-heading">Europe</h2>
+        <div class="destinations-grid">
+          {destinations.europe.map(dest => (
+            <a href={`/study-in-${dest.slug}`} class="destination-card">
+              <span class="card-flag">{dest.flag}</span>
+              <div class="card-content">
+                <h3>{dest.name}</h3>
+                <p>{dest.description}</p>
+                <span class="card-link">Learn More →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Asia -->
+      <div class="continent-section reveal">
+        <h2 class="continent-heading">Asia</h2>
+        <div class="destinations-grid">
+          {destinations.asia.map(dest => (
+            <a href={`/study-in-${dest.slug}`} class="destination-card">
+              <span class="card-flag">{dest.flag}</span>
+              <div class="card-content">
+                <h3>{dest.name}</h3>
+                <p>{dest.description}</p>
+                <span class="card-link">Learn More →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container reveal">
+      <h2>Not Sure Where to Start?</h2>
+      <p>Our expert counselors will help you find the perfect destination based on your goals, budget, and preferences.</p>
+      <div class="cta-buttons">
+        <a href="/contact-us" class="btn btn-gold">Get Free Consultation</a>
+        <a href="tel:+9779851410481" class="btn btn-outline-white">Call +977 9851410481</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .page-hero {
+    background: var(--secondary);
+    color: var(--primary-white);
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    color: var(--primary-white);
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+
+  .section {
+    padding: 5rem 0;
+  }
+
+  .continent-section {
+    margin-bottom: 4rem;
+  }
+
+  .continent-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .continent-heading {
+    font-size: 1.75rem;
+    color: var(--secondary);
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid var(--tertiary);
+    display: inline-block;
+  }
+
+  .destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .destination-card {
+    display: flex;
+    gap: 1.25rem;
+    background: var(--primary-white);
+    border: 2px solid var(--gray-200);
+    padding: 1.75rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: all var(--transition);
+    align-items: flex-start;
+  }
+
+  .destination-card:hover {
+    border-color: var(--tertiary);
+    box-shadow: 0 8px 24px rgba(101, 45, 144, 0.1);
+    transform: translateY(-3px);
+  }
+
+  .card-flag {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .card-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+  }
+
+  .card-content p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-link {
+    color: var(--tertiary);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: var(--secondary);
+    color: var(--primary-white);
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    color: var(--primary-white);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-section p {
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-gold {
+    background: #ffd700;
+    color: var(--secondary);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: all var(--transition);
+  }
+
+  .btn-gold:hover {
+    background: #ffe44d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  }
+
+  .btn-outline-white {
+    border: 2px solid var(--primary-white);
+    color: var(--primary-white);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all var(--transition);
+  }
+
+  .btn-outline-white:hover {
+    background: var(--primary-white);
+    color: var(--secondary);
+  }
+
+  @media (max-width: 768px) {
+    .destinations-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .destination-card {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+    .card-flag {
+      font-size: 3rem;
+    }
+  }
+</style>

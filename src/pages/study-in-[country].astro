@@ -1,0 +1,518 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { getCountryBySlug, getAllCountrySlugs} from '../data/countries.js';
+
+export async function getStaticPaths() {
+  return getAllCountrySlugs().map(slug => ({
+    params: { country: slug }
+  }));
+}
+
+const { country } = Astro.params;
+const countryData = getCountryBySlug(country);
+
+if (!countryData) {
+  return Astro.redirect('/');
+}
+
+const displayName = countryData.name;
+const description = `Comprehensive guide to studying in ${displayName}. Learn about top universities, visa requirements, costs, popular courses, and student life. Expert guidance from Link Wave Global Study.`;
+---
+
+<MainLayout
+  title={`Study in ${displayName} | Complete Guide 2026 | Link Wave`}
+  description={description}
+>
+  <!-- Hero -->
+  <section class="country-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="continent-badge reveal">{countryData.continent}</span>
+        <h1 class="reveal">
+          Study in 
+          {displayName}
+        </h1>
+        <p class="hero-subtitle reveal">{countryData.whyStudy}</p>
+        <div class="quick-facts reveal">
+          <div class="fact">
+            <span class="fact-label">Capital</span>
+            <span class="fact-value">{countryData.capital}</span>
+          </div>
+          <div class="fact">
+            <span class="fact-label">Currency</span>
+            <span class="fact-value">{countryData.currency}</span>
+          </div>
+          <div class="fact">
+            <span class="fact-label">Languages</span>
+            <span class="fact-value">{countryData.languages}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Study Here -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Why Study in {displayName}?</h2>
+      <p class="lead-text reveal">{countryData.whyStudy}</p>
+      
+      <div class="benefits-grid reveal">
+        {countryData.benefits.map((benefit) => (
+          <div class="benefit-item">
+            <span class="benefit-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </span>
+            <span>{benefit}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Education System -->
+  <section class="section bg-light">
+    <div class="container">
+      <h2 class="section-title reveal">Education System in {displayName}</h2>
+      <div class="info-card reveal">
+        <p>{countryData.educationSystem}</p>
+      </div>
+
+      <h3 class="reveal" style="margin-top: 2.5rem; text-align: center;">Top Universities</h3>
+      <div class="universities-grid reveal">
+        {countryData.topUniversities.map((uni) => (
+          <div class="uni-card">
+            <span class="uni-icon">🏛️</span>
+            <span>{uni}</span>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="reveal" style="margin-top: 2.5rem; text-align: center;">Popular Courses</h3>
+      <div class="courses-grid reveal">
+        {countryData.popularCourses.map((course) => (
+          <span class="course-tag">{course}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cost & Visa -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col-grid">
+        <div class="reveal">
+          <h2>Cost of Studying</h2>
+          <div class="cost-card">
+            <div class="cost-item">
+              <span class="cost-label">Tuition Fees</span>
+              <span class="cost-value">{countryData.tuitionFees}</span>
+            </div>
+            <div class="cost-item">
+              <span class="cost-label">Living Expenses</span>
+              <span class="cost-value">{countryData.costOfLiving}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h2>Visa Requirements</h2>
+          <div class="info-card">
+            <p>{countryData.visaRequirements}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Process -->
+  <section class="section bg-light">
+    <div class="container">
+      <h2 class="section-title reveal">Application Process</h2>
+      <div class="process-timeline reveal">
+        {countryData.process.map((step, i) => (
+          <div class="process-step">
+            <div class="step-number">{i + 1}</div>
+            <div class="step-content">
+              <p>{step}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-dark">
+    <div class="container reveal">
+      <h2>Start Your Journey to {displayName}</h2>
+      <p>Let our expert counselors guide you through every step of the application process</p>
+      <div class="cta-buttons">
+        <a href="/contact-us" class="btn btn-gold">Get Free Consultation</a>
+        <a href="tel:+9779851410481" class="btn btn-outline-white">Call +977 9851410481</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Hero */
+  .country-hero {
+    background: var(--secondary);
+    color: var(--primary-white);
+    padding: 5rem 0;
+  }
+
+  .hero-content {
+    max-width: 900px;
+  }
+
+  .continent-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.35rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .hero-content h1 {
+    color: var(--primary-white);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .flag-display {
+    display: inline-block;
+    font-size: 0.9em;
+    vertical-align: middle;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    opacity: 0.9;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .quick-facts {
+    display: flex;
+    gap: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    flex-wrap: wrap;
+  }
+
+  .fact-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    margin-bottom: 0.25rem;
+  }
+
+  .fact-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  /* Sections */
+  .section {
+    padding: 5rem 0;
+  }
+
+  .bg-light {
+    background: var(--gray-100);
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--secondary);
+  }
+
+  .lead-text {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-size: 1.15rem;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  /* Benefits */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: var(--primary-white);
+    border-radius: 8px;
+    border: 1px solid var(--gray-200);
+    transition: all var(--transition);
+  }
+
+  .benefit-item:hover {
+    border-color: var(--tertiary);
+    box-shadow: 0 2px 8px rgba(101, 45, 144, 0.08);
+  }
+
+  .benefit-icon {
+    color: var(--tertiary);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Info Card */
+  .info-card {
+    background: var(--primary-white);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Universities */
+  .universities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    max-width: 900px;
+    margin: 1rem auto 0;
+  }
+
+  .uni-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--primary-white);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    border: 1px solid var(--gray-200);
+    font-weight: 500;
+  }
+
+  .uni-icon {
+    font-size: 1.2rem;
+  }
+
+  /* Courses */
+  .courses-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    max-width: 900px;
+    margin: 1rem auto 0;
+    justify-content: center;
+  }
+
+  .course-tag {
+    background: var(--primary-white);
+    color: var(--tertiary);
+    padding: 0.5rem 1.25rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid var(--gray-200);
+    transition: all var(--transition);
+  }
+
+  .course-tag:hover {
+    background: var(--tertiary);
+    color: var(--primary-white);
+    border-color: var(--tertiary);
+  }
+
+  /* Two Column */
+  .two-col-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .two-col-grid h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Cost Card */
+  .cost-card {
+    background: var(--gray-100);
+    padding: 2rem;
+    border-radius: 12px;
+  }
+
+  .cost-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .cost-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .cost-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.35rem;
+  }
+
+  .cost-value {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--secondary);
+  }
+
+  /* Process Timeline */
+  .process-timeline {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .process-step {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .process-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 1.35rem;
+    top: 2.5rem;
+    height: calc(100% + 1rem);
+    width: 2px;
+    background: var(--gray-200);
+  }
+
+  .step-number {
+    width: 2.75rem;
+    height: 2.75rem;
+    background: var(--tertiary);
+    color: var(--primary-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-content {
+    background: var(--primary-white);
+    padding: 1.25rem;
+    border-radius: 8px;
+    border: 1px solid var(--gray-200);
+    flex: 1;
+  }
+
+  .step-content p {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA Dark */
+  .cta-dark {
+    background: var(--secondary);
+    color: var(--primary-white);
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .cta-dark h2 {
+    color: var(--primary-white);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-dark p {
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-gold {
+    background: #ffd700;
+    color: var(--secondary);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: all var(--transition);
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-gold:hover {
+    background: #ffe44d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  }
+
+  .btn-outline-white {
+    border: 2px solid var(--primary-white);
+    color: var(--primary-white);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all var(--transition);
+  }
+
+  .btn-outline-white:hover {
+    background: var(--primary-white);
+    color: var(--secondary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .two-col-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .quick-facts {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+  }
+</style>

@@ -1,0 +1,151 @@
+---
+import { fetchNews } from '../../utils/strapi';
+const news = await fetchNews();
+---
+
+<div class="news-collage">
+  {news.length === 0 ? (
+    <div class="no-news">
+      <p>No news articles available at the moment.</p>
+    </div>
+  ) : (
+    <div class="collage-grid">
+      {news.slice(0, 6).map((item, index) => (
+        <a href={`/news#${item.id}`} class="collage-item item-${index + 1} reveal">
+          {item.bannerUrl ? (
+            <img 
+              src={item.bannerUrl} 
+              alt={item.bannerAlt}
+              loading={index < 2 ? "eager" : "lazy"}
+              width={item.bannerWidth}
+              height={item.bannerHeight}
+              decoding="async"
+            />
+          ) : (
+            <div class="placeholder-image">
+              <span>📚</span>
+            </div>
+          )}
+          <div class="collage-overlay">
+            <span class="category">{item.category}</span>
+            <h3>{item.title}</h3>
+            <time datetime={item.timestamp}>
+              {new Date(item.timestamp).toLocaleDateString('en-US', {
+                month: 'short', day: 'numeric', year: 'numeric'
+              })}
+            </time>
+          </div>
+        </a>
+      ))}
+    </div>
+  )}
+</div>
+
+<style>
+  .news-collage {
+    padding: 2rem 0;
+  }
+
+  .collage-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 250px 250px;
+    gap: 1rem;
+  }
+
+  .collage-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--primary-white);
+  }
+
+  .collage-item img,
+  .placeholder-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .placeholder-image {
+    background: linear-gradient(135deg, var(--secondary), var(--tertiary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+  }
+
+  .collage-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    transform: translateY(20%);
+    transition: transform 0.3s ease;
+  }
+
+  .collage-item:hover .collage-overlay {
+    transform: translateY(0);
+  }
+
+  .collage-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .category {
+    display: inline-block;
+    background: var(--tertiary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+
+  .collage-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .collage-item time {
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+
+  /* Collage layout variations */
+  .item-1 { grid-column: span 2; grid-row: span 2; }
+  .item-2 { grid-column: span 2; }
+  .item-3, .item-4 { grid-row: span 1; }
+  .item-5, .item-6 { grid-row: span 1; }
+
+  @media (max-width: 900px) {
+    .collage-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+    }
+    .item-1 { grid-column: span 2; grid-row: span 1; }
+    .item-2 { grid-column: span 2; }
+  }
+
+  @media (max-width: 600px) {
+    .collage-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .item-1, .item-2, .item-3, .item-4, .item-5, .item-6 {
+      grid-column: span 1;
+      grid-row: span 1;
+      height: 250px;
+    }
+  }
+</style>

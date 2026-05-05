@@ -1,0 +1,122 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout
+  title="Duolingo English Test Preparation | Online Exam | Link Wave"
+  description="Prepare for the Duolingo English Test (DET) - fast, affordable, online English proficiency exam. Accepted by 4,500+ institutions. Results in 48 hours. Expert coaching in Kathmandu."
+>
+  <section class="tp-hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text reveal">
+          <span class="badge">Test Preparation</span>
+          <h1>Duolingo English Test</h1>
+          <p>A fast, affordable, and convenient online English proficiency exam. Take it from home and get results within 48 hours. Accepted by over 4,500 universities worldwide.</p>
+          <div class="hero-actions">
+            <a href="/contact-us" class="btn btn-gold">Enroll Now</a>
+            <a href="tel:+9779851410481" class="btn btn-outline-white">Call Us</a>
+          </div>
+        </div>
+        <div class="hero-icon reveal">
+          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">What is Duolingo English Test?</h2>
+      <div class="content-card reveal">
+        <p>The Duolingo English Test (DET) is a fast, affordable, and convenient online English proficiency exam, designed for students and professionals who need to demonstrate their language skills for study, work, or migration. Unlike traditional tests, DET can be taken from the comfort of your home and delivers results within <strong>48 hours</strong>.</p>
+        <p>It is accepted by over <strong>4,500 universities and institutions worldwide</strong>, including those in the USA, Canada, UK, and Australia.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="container">
+      <h2 class="section-title reveal">Test Format & Structure</h2>
+      <p class="section-desc reveal">The DET assesses four key language skills using an adaptive system that adjusts difficulty based on your answers. The test lasts 45-60 minutes.</p>
+      
+      <div class="two-col reveal">
+        <div class="format-card">
+          <h3>1. Adaptive Test (45 minutes)</h3>
+          <ul>
+            <li>Read and complete missing words</li>
+            <li>Listen and type the spoken sentence</li>
+            <li>Describe an image in writing or speech</li>
+            <li>Speak a sentence after listening to an audio clip</li>
+            <li>Write short and long responses to prompts</li>
+          </ul>
+        </div>
+        <div class="format-card">
+          <h3>2. Writing & Speaking Sample (10 minutes)</h3>
+          <p>This section records a video interview and a written response, which are shared with universities as part of your score report.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Why Choose Duolingo?</h2>
+      <div class="benefits-list reveal">
+        <div class="benefit-row"><span class="check">✓</span> <strong>Fast & Convenient</strong> – Take it anytime, anywhere with results in 48 hours</div>
+        <div class="benefit-row"><span class="check">✓</span> <strong>Affordable</strong> – Costs significantly less than IELTS or PTE</div>
+        <div class="benefit-row"><span class="check">✓</span> <strong>AI-Powered & Fair Scoring</strong> – Ensures accurate and unbiased evaluation</div>
+        <div class="benefit-row"><span class="check">✓</span> <strong>Accepted Worldwide</strong> – Recognized by universities in USA, UK, Canada, and Australia</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-dark">
+    <div class="container reveal">
+      <h2>Start Your Duolingo Test Prep</h2>
+      <p>Expert guidance for the most convenient English proficiency test</p>
+      <div class="cta-buttons">
+        <a href="/contact-us" class="btn btn-gold">Get Started</a>
+        <a href="tel:+9779851410481" class="btn btn-outline-white">+977 9851410481</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .tp-hero { background: var(--secondary); color: var(--primary-white); padding: 5rem 0; }
+  .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
+  .badge { display: inline-block; background: rgba(255,255,255,0.15); padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
+  .hero-text h1 { color: var(--primary-white); font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+  .hero-text p { opacity: 0.9; font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem; max-width: 600px; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero-icon { color: rgba(255,255,255,0.2); }
+  .btn-gold { background: #ffd700; color: var(--secondary); padding: 0.85rem 2rem; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; transition: all var(--transition); }
+  .btn-gold:hover { background: #ffe44d; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(255,215,0,0.3); }
+  .btn-outline-white { border: 2px solid var(--primary-white); color: var(--primary-white); padding: 0.85rem 2rem; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-block; transition: all var(--transition); }
+  .btn-outline-white:hover { background: var(--primary-white); color: var(--secondary); }
+  .section { padding: 5rem 0; }
+  .bg-light { background: var(--gray-100); }
+  .section-title { text-align: center; margin-bottom: 1.5rem; }
+  .section-desc { text-align: center; max-width: 700px; margin: 0 auto 3rem; color: #666; line-height: 1.7; }
+  .content-card { background: var(--primary-white); padding: 2.5rem; border-radius: 12px; border: 1px solid var(--gray-200); max-width: 800px; margin: 0 auto; line-height: 1.8; }
+  .content-card p { margin-bottom: 1rem; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 900px; margin: 0 auto; }
+  .format-card { background: var(--primary-white); padding: 2rem; border-radius: 12px; border: 1px solid var(--gray-200); }
+  .format-card h3 { margin-bottom: 1rem; color: var(--tertiary); }
+  .format-card ul { padding-left: 1.25rem; }
+  .format-card li { margin-bottom: 0.5rem; color: #555; line-height: 1.6; }
+  .benefits-list { max-width: 700px; margin: 0 auto; }
+  .benefit-row { display: flex; gap: 0.75rem; padding: 1rem; background: var(--primary-white); border-radius: 8px; margin-bottom: 0.75rem; border: 1px solid var(--gray-200); }
+  .check { color: var(--tertiary); font-weight: 800; flex-shrink: 0; }
+  .cta-dark { background: var(--secondary); color: var(--primary-white); padding: 4rem 0; text-align: center; }
+  .cta-dark h2 { color: var(--primary-white); margin-bottom: 0.75rem; }
+  .cta-dark p { opacity: 0.9; margin-bottom: 2rem; font-size: 1.1rem; }
+  .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  @media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-icon { display: none; }
+    .two-col { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,53 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout
+  title="Contact LinkWave Education"
+  description="Get in touch with our education consultants for personalized guidance."
+>
+  <div class="container" style="padding: 4rem 1.5rem; max-width: 600px;">
+    <h1 class="reveal">Contact Us</h1>
+    <form class="contact-form reveal">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <select>
+      <option value="">Select your Destination</option>
+      <option value="australia">Australia</option>
+      <option value="uk">United Kingdom</option>
+      <option value="canada">Canada</option>
+      <option value="new-zealand">New Zealand</option>
+      <option value="usa">United States</option>
+      <option value="france">France</option>
+      <option value="ireland">Ireland</option>
+      <option value="finland">Finland</option>
+      <option value="denmark">Denmark</option>
+      <option value="germany">Germany</option>
+      <option value="netherlands">Netherlands</option>
+      <option value="malta">Malta</option>
+      <option value="india">India</option>
+      <option value="japan">Japan</option>
+      <option value="philippines">Philippines</option>
+    </select>
+      <textarea placeholder="Your Message" rows="5"></textarea>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+</MainLayout>
+
+<style>
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    padding: 0.75rem;
+    border: 2px solid var(--gray-200);
+    border-radius: 8px;
+    font-family: inherit;
+  }
+</style>
