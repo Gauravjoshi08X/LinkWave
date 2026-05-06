@@ -11,24 +11,14 @@ import MainLayout from '../layouts/MainLayout.astro';
     <form class="contact-form reveal">
       <input type="text" placeholder="Your Name" required />
       <input type="email" placeholder="Your Email" required />
-      <select>
+      <select name="destination">
       <option value="">Select your Destination</option>
-      <option value="australia">Australia</option>
-      <option value="uk">United Kingdom</option>
-      <option value="canada">Canada</option>
-      <option value="new-zealand">New Zealand</option>
-      <option value="usa">United States</option>
-      <option value="france">France</option>
-      <option value="ireland">Ireland</option>
-      <option value="finland">Finland</option>
-      <option value="denmark">Denmark</option>
-      <option value="germany">Germany</option>
-      <option value="netherlands">Netherlands</option>
-      <option value="malta">Malta</option>
-      <option value="india">India</option>
-      <option value="japan">Japan</option>
-      <option value="philippines">Philippines</option>
-    </select>
+      <option value="Australia">Australia</option>
+      <option value="UK">United Kingdom</option>
+      <option value="Canada">Canada</option>
+      <option value="New Zealand">New Zealand</option>
+      <option value="USA">United States</option>
+      </select>
       <textarea placeholder="Your Message" rows="5"></textarea>
       <button type="submit" class="btn btn-primary">Send Message</button>
     </form>

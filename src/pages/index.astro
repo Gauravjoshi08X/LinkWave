@@ -53,49 +53,45 @@ const news = await fetchNews();
     </div>
   </section>
 
-  <!-- Destination Finder -->
+    <!-- Explore Destinations -->
   <section class="section">
     <div class="container">
       <div class="section-intro reveal">
-        <h2>Find the Right Destination for International Study</h2>
-        <p>Our experienced counselors possess a deep understanding of international education systems and university admissions requirements. We leverage our extensive global network of partnerships with over 500 leading institutions across 10 countries to provide students with access to a world of educational opportunities.</p>
+        <h2>Explore Our Top Destinations</h2>
+        <p>Our experienced counselors possess a deep understanding of international education systems and university admissions requirements. We leverage our extensive global network of partnerships with over 500 leading institutions.</p>
       </div>
 
-      <div class="destinations-grid reveal">
-        <a href="/study-in-u-s" class="dest-card">
+      <div class="destinations-grid-large reveal">
+        <a href="/study-in-u-s" class="dest-card-large">
           <span class="dest-flag">🇺🇸</span>
-          <h3>USA</h3>
+          <h3>United States</h3>
+          <span class="dest-university">Harvard, MIT, Stanford</span>
           <span class="dest-link">Explore →</span>
         </a>
-        <a href="/study-in-canada" class="dest-card">
+        <a href="/study-in-u-k" class="dest-card-large">
+          <span class="dest-flag">🇬🇧</span>
+          <h3>United Kingdom</h3>
+          <span class="dest-university">Oxford, Cambridge, Imperial</span>
+          <span class="dest-link">Explore →</span>
+        </a>
+        <a href="/study-in-canada" class="dest-card-large">
           <span class="dest-flag">🇨🇦</span>
           <h3>Canada</h3>
+          <span class="dest-university">Toronto, UBC, McGill</span>
           <span class="dest-link">Explore →</span>
         </a>
-        <a href="/study-in-u-k" class="dest-card">
-          <span class="dest-flag">🇬🇧</span>
-          <h3>UK</h3>
-          <span class="dest-link">Explore →</span>
-        </a>
-        <a href="/study-in-australia" class="dest-card">
+        <a href="/study-in-australia" class="dest-card-large">
           <span class="dest-flag">🇦🇺</span>
           <h3>Australia</h3>
+          <span class="dest-university">Melbourne, Sydney, ANU</span>
           <span class="dest-link">Explore →</span>
         </a>
-        <a href="/study-in-japan" class="dest-card">
-          <span class="dest-flag">🇯🇵</span>
-          <h3>Japan</h3>
-          <span class="dest-link">Explore →</span>
-        </a>
-        <a href="/study-in-new-zealand" class="dest-card">
+        <a href="/study-in-new-zealand" class="dest-card-large">
           <span class="dest-flag">🇳🇿</span>
           <h3>New Zealand</h3>
+          <span class="dest-university">Auckland, Otago, Victoria</span>
           <span class="dest-link">Explore →</span>
         </a>
-      </div>
-
-      <div class="text-center reveal">
-        <a href="/study-abroad" class="btn btn-outline">View All Destinations</a>
       </div>
     </div>
   </section>
@@ -119,7 +115,7 @@ const news = await fetchNews();
           </div>
           <h3>PTE Exam Preparation</h3>
           <p>Our PTE exam preparation program is designed to help students achieve high scores through expert guidance, structured lessons, and real-time practice tests. We focus on all four modules—Speaking, Writing, Reading, and Listening.</p>
-          <a href="/test-preparation" class="read-more">Read More →</a>
+          <a href="/test-preparation/pte" class="read-more">Read More →</a>
         </div>
 
         <!-- IELTS -->
@@ -134,7 +130,7 @@ const news = await fetchNews();
           </div>
           <h3>IELTS Exam Preparation</h3>
           <p>Our IELTS coaching provides in-depth training for both Academic and General Training modules, helping students build strong language skills. With experienced instructors, mock tests, study materials, and personalized strategies, we ensure you gain confidence and fluency in English.</p>
-          <a href="/test-preparation" class="read-more">Read More →</a>
+          <a href="/test-preparation/ielts" class="read-more">Read More →</a>
         </div>
 
         <!-- Duolingo -->
@@ -148,7 +144,7 @@ const news = await fetchNews();
           </div>
           <h3>Duolingo English Test</h3>
           <p>The Duolingo English Test (DET) is a fast, affordable, and convenient online English proficiency exam, designed for students and professionals who need to demonstrate their language skills for study, work, or migration.</p>
-          <a href="/test-preparation" class="read-more">Read More →</a>
+          <a href="/test-preparation/duolingo" class="read-more">Read More →</a>
         </div>
       </div>
     </div>
@@ -289,14 +285,16 @@ const news = await fetchNews();
       </div>
 
       <div class="rating-badges reveal">
+        <a style="text-decoration: none;" href="https://www.facebook.com/linkwave.global1/">
         <div class="rating-badge">
           <span>Rate Us on Facebook</span>
           <div class="stars">★★★★★</div>
-        </div>
+        </div></a>
+        <a style="text-decoration: none;" href="https://www.google.com/search?q=linkwave+consultancy"
         <div class="rating-badge">
           <span>Rate Us on Google</span>
           <div class="stars">★★★★★</div>
-        </div>
+        </div>></a>
       </div>
     </div>
   </section>
@@ -426,22 +424,13 @@ const news = await fetchNews();
             </div>
             <input type="tel" placeholder="Phone Number" required />
             <input type="email" placeholder="Email" />
-            <select>
+            <select name="destination">
               <option value="">Select your Destination</option>
-              <option>Australia</option>
-              <option>UK</option>
-              <option>Canada</option>
-              <option>USA</option>
-              <option>Japan</option>
-              <option>New Zealand</option>
-              <option>Other</option>
-            </select>
-            <select>
-              <option value="">Select your preferred Course</option>
-              <option>IELTS Preparation</option>
-              <option>PTE Preparation</option>
-              <option>Duolingo</option>
-              <option>Other</option>
+              <option value="Australia">Australia</option>
+              <option value="UK">United Kingdom</option>
+              <option value="Canada">Canada</option>
+              <option value="New Zealand">New Zealand</option>
+              <option value="USA">United States</option>
             </select>
             <textarea placeholder="Comment or Message" rows="3"></textarea>
             <button type="submit" class="btn btn-primary btn-full">Submit</button>
@@ -698,46 +687,53 @@ const news = await fetchNews();
   }
 
   /* Destinations */
-  .destinations-grid {
+  .destinations-grid-large {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
-  .dest-card {
+  .dest-card-large {
     background: var(--primary-white);
     border: 2px solid var(--gray-200);
     padding: 2rem 1.5rem;
-    border-radius: 12px;
+    border-radius: 16px;
     text-align: center;
     text-decoration: none;
     color: var(--text-dark);
     transition: all var(--transition);
   }
 
-  .dest-card:hover {
+  .dest-card-large:hover {
     border-color: var(--tertiary);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(101, 45, 144, 0.12);
+    box-shadow: 0 12px 30px rgba(101, 45, 144, 0.1);
+    transform: translateY(-5px);
   }
 
   .dest-flag {
-    font-size: 2.5rem;
+    font-size: 3rem;
     display: block;
     margin-bottom: 0.75rem;
   }
 
-  .dest-card h3 {
-    font-size: 1.1rem;
+  .dest-card-large h3 {
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
+  }
+
+  .dest-university {
+    display: block;
+    color: #888;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
   }
 
   .dest-link {
     color: var(--tertiary);
     font-weight: 600;
-    font-size: 0.85rem;
   }
-
   /* Services */
   .services-grid {
     display: grid;

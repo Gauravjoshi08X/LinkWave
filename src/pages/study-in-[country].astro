@@ -80,13 +80,19 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
         <p>{countryData.educationSystem}</p>
       </div>
 
-      <h3 class="reveal" style="margin-top: 2.5rem; text-align: center;">Top Universities</h3>
+      <h3 class="reveal" style="margin-top: 2.5rem; text-align: center;">Top Universities & Rankings</h3>
       <div class="universities-grid reveal">
         {countryData.topUniversities.map((uni) => (
-          <div class="uni-card">
-            <span class="uni-icon">🏛️</span>
-            <span>{uni}</span>
-          </div>
+          <a href={uni.url} target="_blank" rel="noopener noreferrer" class="uni-card">
+            <div class="uni-rank-badge">#{uni.rank}</div>
+            <div class="uni-info">
+              <span class="uni-name">{uni.name}</span>
+              <span class="uni-rank-label">Global Rank</span>
+            </div>
+            <span class="uni-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </span>
+          </a>
         ))}
       </div>
 
@@ -289,9 +295,9 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
   }
 
   /* Universities */
-  .universities-grid {
+    .universities-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1rem;
     max-width: 900px;
     margin: 1rem auto 0;
@@ -300,16 +306,70 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
   .uni-card {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
     background: var(--primary-white);
-    padding: 1rem 1.25rem;
-    border-radius: 8px;
-    border: 1px solid var(--gray-200);
-    font-weight: 500;
+    padding: 1.25rem;
+    border-radius: 12px;
+    border: 2px solid var(--gray-200);
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: all var(--transition);
+    cursor: pointer;
   }
 
-  .uni-icon {
-    font-size: 1.2rem;
+  .uni-card:hover {
+    border-color: var(--tertiary);
+    box-shadow: 0 8px 24px rgba(101, 45, 144, 0.12);
+    transform: translateY(-3px);
+  }
+
+  .uni-rank-badge {
+    width: 48px;
+    height: 48px;
+    background: var(--secondary);
+    color: var(--primary-white);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .uni-card:hover .uni-rank-badge {
+    background: var(--tertiary);
+  }
+
+  .uni-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .uni-name {
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--secondary);
+    margin-bottom: 0.2rem;
+  }
+
+  .uni-rank-label {
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .uni-arrow {
+    color: #ccc;
+    flex-shrink: 0;
+    transition: all var(--transition);
+  }
+
+  .uni-card:hover .uni-arrow {
+    color: var(--tertiary);
+    transform: translateX(3px);
   }
 
   /* Courses */

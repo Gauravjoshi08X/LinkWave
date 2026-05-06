@@ -6,59 +6,201 @@ const news = await fetchNews();
 ---
 
 <MainLayout
-  title="Latest News & Updates"
-  description="Stay updated with the latest news about studying abroad, visa updates, and educational opportunities."
+  title="Latest News & Blogs | Link Wave Global Study"
+  description="Stay updated with the latest news about studying abroad, visa updates, scholarships, and educational opportunities worldwide."
 >
-  <div class="container" style="padding: 4rem 1.5rem;">
-    <h1 class="reveal">Latest News</h1>
-    <div class="news-list">
-      {news.map(item => (
-        <article class="news-card reveal" id={item.id}>
-          {item.bannerUrl && <img src={item.bannerUrl} alt={item.bannerAlt} loading="lazy" />}
-          <div class="news-content">
-            <span class="category">{item.category}</span>
-            <h2>{item.title}</h2>
-            <time datetime={item.timestamp}>{new Date(item.timestamp).toLocaleDateString()}</time>
-          </div>
-        </article>
-      ))}
+  <section class="news-hero">
+    <div class="container">
+      <h1 class="reveal">News & Blogs</h1>
+      <p class="reveal">Stay informed with the latest updates on study abroad opportunities, tips, and guides</p>
     </div>
-  </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {news.length === 0 ? (
+        <div class="empty-state reveal">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+          </svg>
+          <h2>No News Yet</h2>
+          <p>Check back soon for the latest updates on study abroad opportunities.</p>
+        </div>
+      ) : (
+        <div class="news-grid">
+          {news.map((item) => (
+            <a href={`/news/${item.documentId}`} class="news-card reveal">
+              <div class="news-card-image">
+                {item.bannerUrl ? (
+                  <img src={item.bannerUrl} alt={item.bannerAlt} loading="lazy" />
+                ) : (
+                  <div class="news-placeholder">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  </div>
+                )}
+              </div>
+              <div class="news-card-body">
+                <span class="news-category">{item.category}</span>
+                <h3>{item.title}</h3>
+                <p class="news-excerpt">{item.description?.replace(/[#*]/g, '').substring(0, 150)}...</p>
+                <div class="news-meta">
+                  <time datetime={item.timestamp}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    {new Date(item.timestamp).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </time>
+                  <span class="read-more">Read More →</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
 </MainLayout>
 
 <style>
-  .news-list {
-    display: grid;
-    gap: 2rem;
-    margin-top: 2rem;
+  .news-hero {
+    background: var(--secondary);
+    color: var(--primary-white);
+    padding: 4rem 0;
+    text-align: center;
   }
-  .news-card {
+  .news-hero h1 {
+    color: var(--primary-white);
+    margin-bottom: 0.75rem;
+  }
+  .news-hero p {
+    opacity: 0.9;
+    font-size: 1.15rem;
+  }
+  .section { padding: 5rem 0; }
+  
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #999;
+  }
+  .empty-state svg { margin-bottom: 1.5rem; opacity: 0.4; }
+  .empty-state h2 { margin-bottom: 0.5rem; }
+
+  .news-grid {
     display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 1.5rem;
-    background: var(--gray-100);
-    border-radius: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .news-card {
+    background: var(--primary-white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: all var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .news-card:hover {
+    border-color: var(--tertiary);
+    box-shadow: 0 8px 30px rgba(36, 54, 120, 0.1);
+    transform: translateY(-4px);
+  }
+
+  .news-card-image {
+    height: 220px;
     overflow: hidden;
   }
-  .news-card img {
+
+  .news-card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
   }
-  .news-content {
-    padding: 1.5rem;
+
+  .news-card:hover .news-card-image img {
+    transform: scale(1.05);
   }
-  .category {
+
+  .news-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--gray-200), var(--gray-100));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+  }
+
+  .news-card-body {
+    padding: 1.75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .news-category {
     display: inline-block;
-    background: var(--tertiary);
-    color: var(--primary-white);
-    padding: 0.25rem 0.75rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
+    background: rgba(101, 45, 144, 0.08);
+    color: var(--tertiary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    width: fit-content;
   }
+
+  .news-card-body h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .news-excerpt {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 1.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-200);
+    font-size: 0.85rem;
+    color: #888;
+  }
+
+  .news-meta time {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .read-more {
+    color: var(--tertiary);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
   @media (max-width: 600px) {
-    .news-card {
+    .news-grid {
       grid-template-columns: 1fr;
     }
   }
