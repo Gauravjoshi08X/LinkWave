@@ -5,6 +5,7 @@ export const countries = {
       'australia': {
         name: 'Australia',
         flag: '🇦🇺',
+        banner: 'banner_48.jpeg',
         capital: 'Canberra',
         currency: 'Australian Dollar (AUD)',
         languages: 'English',
@@ -207,7 +208,11 @@ export function getAllCountries() {
 export function getCountryBySlug(slug) {
   for (const continent of Object.values(countries)) {
     if (continent.countries[slug]) {
-      return { ...continent.countries[slug], continent: continent.title };
+      return { 
+        ...continent.countries[slug], 
+        continent: continent.title,
+        banner: continent.countries[slug].banner || '/images/banners/placeholder.jpg'
+      };
     }
   }
   return null;

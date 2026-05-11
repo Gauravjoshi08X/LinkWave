@@ -1,6 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import { getCountryBySlug, getAllCountrySlugs} from '../data/countries.js';
+import { getCountryBySlug, getAllCountrySlugs, flagMap } from '../data/countries.js';
 
 export async function getStaticPaths() {
   return getAllCountrySlugs().map(slug => ({
@@ -16,6 +16,7 @@ if (!countryData) {
 }
 
 const displayName = countryData.name;
+const flag = flagMap[country] || '';  // ← This line was missing!
 const description = `Comprehensive guide to studying in ${displayName}. Learn about top universities, visa requirements, costs, popular courses, and student life. Expert guidance from Link Wave Global Study.`;
 ---
 
@@ -25,26 +26,40 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
 >
   <!-- Hero -->
   <section class="country-hero">
-    <div class="container">
-      <div class="hero-content">
-        <span class="continent-badge reveal">{countryData.continent}</span>
-        <h1 class="reveal">
-          Study in 
-          {displayName}
-        </h1>
-        <p class="hero-subtitle reveal">{countryData.whyStudy}</p>
-        <div class="quick-facts reveal">
-          <div class="fact">
-            <span class="fact-label">Capital</span>
-            <span class="fact-value">{countryData.capital}</span>
-          </div>
-          <div class="fact">
-            <span class="fact-label">Currency</span>
-            <span class="fact-value">{countryData.currency}</span>
-          </div>
-          <div class="fact">
-            <span class="fact-label">Languages</span>
-            <span class="fact-value">{countryData.languages}</span>
+    <div class="hero-banner">
+      <img 
+        src={countryData.banner || '/images/banners/placeholder.jpg'} 
+        alt={`Study in ${displayName}`}
+        class="banner-image"
+        onerror="this.src='/images/banners/placeholder.jpg'"
+      />
+    </div>
+    <div class="hero-overlay">
+      <div class="container">
+        <div class="hero-content">
+          <span class="continent-badge reveal">{countryData.continent}</span>
+          <h1 class="reveal">
+            Study in 
+            <span class="flag-display">{flag}</span> 
+            {displayName}
+          </h1>
+          <p class="hero-subtitle reveal">{countryData.whyStudy}</p>
+          <div class="quick-facts reveal">
+            <div class="fact">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span class="fact-label">Capital</span>
+              <span class="fact-value">{countryData.capital}</span>
+            </div>
+            <div class="fact">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="6" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span class="fact-label">Currency</span>
+              <span class="fact-value">{countryData.currency}</span>
+            </div>
+            <div class="fact">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              <span class="fact-label">Languages</span>
+              <span class="fact-value">{countryData.languages}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -166,24 +181,62 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
 <style>
   /* Hero */
   .country-hero {
-    background: var(--secondary);
+    position: relative;
+    height: 600px;
+    overflow: hidden;
     color: var(--primary-white);
-    padding: 5rem 0;
+  }
+
+  .hero-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg, 
+      rgba(36, 54, 120, 0.85) 0%, 
+      rgba(36, 54, 120, 0.7) 40%,
+      rgba(101, 45, 144, 0.6) 100%
+    );
+    z-index: 2;
+    display: flex;
+    align-items: center;
   }
 
   .hero-content {
-    max-width: 900px;
+    max-width: 800px;
+    position: relative;
+    z-index: 3;
   }
 
   .continent-badge {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
     padding: 0.35rem 1rem;
     border-radius: 20px;
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .hero-content h1 {
@@ -191,6 +244,7 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     margin-bottom: 1rem;
     line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
   }
 
   .flag-display {
@@ -201,31 +255,56 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
 
   .hero-subtitle {
     font-size: 1.15rem;
-    opacity: 0.9;
+    opacity: 0.95;
     line-height: 1.7;
     margin-bottom: 2rem;
+    max-width: 700px;
   }
 
   .quick-facts {
     display: flex;
-    gap: 3rem;
+    gap: 2.5rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
     flex-wrap: wrap;
   }
 
-  .fact-label {
-    display: block;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  .fact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .fact svg {
     opacity: 0.7;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .fact-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.75;
   }
 
   .fact-value {
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+  }
+
+  @media (max-width: 768px) {
+    .country-hero {
+      height: auto;
+      min-height: 500px;
+    }
+
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .quick-facts {
+      gap: 1.5rem;
+    }
   }
 
   /* Sections */
