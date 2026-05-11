@@ -1,4 +1,4 @@
-const STRAPI_URL = 'http://localhost:1337';
+const STRAPI_URL = 'https://authentic-bracelet-0264bec354.strapiapp.com';
 
 export async function fetchNews() {
   try {
@@ -13,7 +13,7 @@ export async function fetchNews() {
       category: item.category || 'News and Blog',
       description: item.description || '',
       timestamp: item.uploaded_at || item.publishedAt?.split('T')[0] || '',
-      bannerUrl: item.banner?.url ? `${STRAPI_URL}${item.banner.url}` : null,
+      bannerUrl: item.banner?.url ? `${item.banner.url}` : null,
       bannerAlt: item.banner?.alternativeText || item.title,
       bannerWidth: item.banner?.width || 800,
       bannerHeight: item.banner?.height || 400
@@ -40,7 +40,7 @@ export async function fetchSingleNews(documentId) {
       category: item.category || 'News and Blog',
       description: item.description || '',
       timestamp: item.uploaded_at || item.publishedAt?.split('T')[0] || '',
-      bannerUrl: item.banner?.url ? `${STRAPI_URL}${item.banner.url}` : null,
+      bannerUrl: item.banner?.url ? `${item.banner.url}` : null,
       bannerAlt: item.banner?.alternativeText || item.title,
       bannerWidth: item.banner?.width || 800,
       bannerHeight: item.banner?.height || 400

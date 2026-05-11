@@ -42,6 +42,7 @@ export const countries = {
       'u-k': {
         name: 'United Kingdom',
         flag: '🇬🇧',
+        banner: 'banner_46.jpeg',
         capital: 'London',
         currency: 'Pound Sterling (GBP)',
         languages: 'English',
@@ -79,6 +80,7 @@ export const countries = {
         name: 'Canada',
         flag: '🇨🇦',
         capital: 'Ottawa',
+        banner: 'banner_47.jpeg',
         currency: 'Canadian Dollar (CAD)',
         languages: 'English, French',
         whyStudy: 'Canada is consistently ranked among the best countries for quality of life and education. Known for its welcoming immigration policies, Canada offers clear pathways from study to permanent residency. The education system emphasizes practical learning, research, and innovation with affordable tuition compared to other English-speaking countries.',
@@ -114,6 +116,7 @@ export const countries = {
       'new-zealand': {
         name: 'New Zealand',
         flag: '🇳🇿',
+        banner: 'banner_35.jpeg',
         capital: 'Wellington',
         currency: 'New Zealand Dollar (NZD)',
         languages: 'English, Māori',
@@ -152,6 +155,7 @@ export const countries = {
         flag: '🇺🇸',
         capital: 'Washington, D.C.',
         currency: 'US Dollar (USD)',
+        banner: 'banner_44.jpeg',
         languages: 'English',
         whyStudy: 'The United States hosts more international students than any other country, with over 4,000 universities and colleges. American institutions lead in research, innovation, and technology. The flexible education system allows students to explore different subjects before declaring a major.',
         benefits: [
@@ -187,13 +191,6 @@ export const countries = {
   }
 };
 
-export const flagMap = {
-  'australia': '🇦🇺',
-  'u-k': '🇬🇧',
-  'canada': '🇨🇦',
-  'new-zealand': '🇳🇿',
-  'u-s': '🇺🇸'
-};
 
 export function getAllCountries() {
   const all = {};

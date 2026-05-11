@@ -1,0 +1,348 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const staffImages = [
+  { src: 'staff-1.jpeg'},
+  { src: 'staff-3.jpeg'},
+  { src: 'staff-4.jpeg'},
+  { src: 'staff-5.jpeg'},
+  { src: 'staff-7.jpeg'},
+  { src: 'staff-8.jpeg'},
+  { src: 'staff-9.jpeg'},
+  { src: 'staff-10.jpeg'},
+  { src: 'staff-11.jpeg'},
+  { src: 'staff-12.jpeg'},
+  { src: 'staff-13.jpeg'},
+  { src: 'staff-15.jpeg'},
+  { src: 'staff-16.jpeg'},
+  { src: 'staff-17.jpeg'},
+  { src: 'staff-18.jpeg'},
+];
+
+const officeImages = [
+  { src: 'office-1.jpeg'},
+  { src: 'office-2.jpeg'},
+  { src: 'office-4.jpeg'},
+];
+---
+
+<MainLayout
+  title="Our Team & Office | Link Wave Global Study"
+  description="Meet the experienced team at Link Wave Global Study. See our office in Putalisadak, Kathmandu."
+>
+  <!-- Hero -->
+  <section class="gallery-hero">
+    <div class="container">
+      <h1 class="reveal">Our Team & Office</h1>
+      <p class="reveal">Meet the dedicated professionals behind Link Wave Global Study</p>
+    </div>
+  </section>
+
+  <!-- Staff Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Our Team</h2>
+        <p>Experienced counselors, instructors, and staff dedicated to your success</p>
+      </div>
+
+      <div class="gallery-grid">
+        {staffImages.map((img, i) => (
+          <div class="gallery-item reveal" style={`animation-delay: ${i * 0.1}s`}>
+            <div class="gallery-card" onclick="openLightbox('{img.src}', '{img.caption}')">
+              <img 
+                src={img.src} 
+                alt={img.alt} 
+                loading="lazy"
+              />
+              <div class="gallery-overlay">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Office Section -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Our Office</h2>
+        <p>Visit us at Putalisadak, Kathmandu</p>
+      </div>
+
+      <div class="gallery-grid">
+        {officeImages.map((img, i) => (
+          <div class="gallery-item reveal" style={`animation-delay: ${i * 0.1}s`}>
+            <div class="gallery-card" onclick="openLightbox('{img.src}', '{img.caption}')">
+              <img 
+                src={img.src} 
+                loading="lazy"
+                onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%23e8e8f0%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23888%22 font-family=%22Arial%22>No Image</text></svg>'"
+              />
+              <div class="gallery-overlay">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <img id="lightboxImage" src="" alt="" />
+    <p id="lightboxCaption"></p>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-dark">
+    <div class="container reveal">
+      <h2>Want to Meet Us in Person?</h2>
+      <p>Visit our office in Putalisadak, Kathmandu</p>
+      <div class="cta-buttons">
+        <a href="/contact-us" class="btn btn-gold">Get Directions</a>
+        <a href="tel:+9779851410481" class="btn btn-outline-white">+977 9851410481</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .gallery-hero {
+    background: var(--secondary);
+    color: var(--primary-white);
+    padding: 4rem 0;
+    text-align: center;
+  }
+  .gallery-hero h1 { color: var(--primary-white); margin-bottom: 0.75rem; }
+  .gallery-hero p { opacity: 0.9; font-size: 1.15rem; }
+
+  .section { padding: 5rem 0; }
+  .bg-light { background: var(--gray-100); }
+  
+  .section-header { text-align: center; margin-bottom: 3rem; }
+  .section-header h2 { margin-bottom: 0.5rem; }
+  .section-header p { color: #888; }
+
+  /* Gallery Grid */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .gallery-item {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .gallery-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    background: var(--gray-200);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+  }
+
+  .gallery-card:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    transform: translateY(-4px);
+  }
+
+  .gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .gallery-card:hover img {
+    transform: scale(1.06);
+  }
+
+  .gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(36, 54, 120, 0.75);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: white;
+    padding: 1.5rem;
+  }
+
+
+  .overlay-text {
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox img {
+    max-width: 90%;
+    max-height: 75vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  }
+
+  #lightboxCaption {
+    color: white;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10001;
+    padding: 8px;
+  }
+
+
+  /* CTA */
+  .cta-dark {
+    background: var(--secondary);
+    color: var(--primary-white);
+    padding: 4rem 0;
+    text-align: center;
+  }
+  .cta-dark h2 { color: var(--primary-white); margin-bottom: 0.75rem; }
+  .cta-dark p { opacity: 0.9; margin-bottom: 2rem; font-size: 1.1rem; }
+  .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  .btn-gold {
+    background: #ffd700;
+    color: var(--secondary);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: all var(--transition);
+  }
+  .btn-gold:hover {
+    background: #ffe44d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+  }
+
+  .btn-outline-white {
+    border: 2px solid var(--primary-white);
+    color: var(--primary-white);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all var(--transition);
+  }
+  .btn-outline-white:hover {
+    background: var(--primary-white);
+    color: var(--secondary);
+  }
+
+  @media (max-width: 600px) {
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 0.75rem;
+    }
+  }
+</style>
+
+<script>
+  let currentImages = [];
+  let currentIndex = 0;
+
+  function openLightbox(src, caption) {
+    const allCards = document.querySelectorAll('.gallery-card img');
+    currentImages = Array.from(allCards).map(img => ({
+      src: img.src,
+      caption: img.closest('.gallery-card').querySelector('.overlay-text')?.textContent || ''
+    }));
+    
+    currentIndex = currentImages.findIndex(img => img.src === src);
+    if (currentIndex === -1) currentIndex = 0;
+    
+    updateLightbox();
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function updateLightbox() {
+    document.getElementById('lightboxImage').src = currentImages[currentIndex].src;
+    document.getElementById('lightboxCaption').textContent = currentImages[currentIndex].caption;
+  }
+
+  function navigateLightbox(direction) {
+    event.stopPropagation();
+    currentIndex = (currentIndex + direction + currentImages.length) % currentImages.length;
+    updateLightbox();
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!document.getElementById('lightbox').classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') { e.preventDefault(); navigateLightbox(-1); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); navigateLightbox(1); }
+  });
+</script>
