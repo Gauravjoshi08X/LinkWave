@@ -19,8 +19,8 @@ const currentPath = Astro.url.pathname;
       <li><a href="/about" class:list={["nav-link", { active: currentPath === '/about' }]}>Why Choose Us?</a></li>
       
       <li class="dropdown" id="dropdown1">
-        <button class="nav-link dropdown-toggle" data-dropdown="dropdown1">
-          Study Abroad <span class="dropdown-arrow">▾</span>
+        <button class="nav-link dropdown-toggle" onclick="window.location.href='/study-abroad'" data-dropdown="dropdown1">
+          Study Abroad
         </button>
           <div class="dropdown-menu mega-menu">
           <div class="mega-menu-grid" style="grid-template-columns: 1fr;">
@@ -40,7 +40,7 @@ const currentPath = Astro.url.pathname;
       
       <li class="dropdown" id="dropdown2">
         <button class="nav-link dropdown-toggle" data-dropdown="dropdown2">
-          Test Preparation <span class="dropdown-arrow">▾</span>
+          Test Preparation
         </button>
         <div class="dropdown-menu simple-menu">
           <ul>
@@ -296,39 +296,11 @@ const currentPath = Astro.url.pathname;
     .mobile-toggle.active span:nth-child(3) {
       transform: rotate(-45deg) translate(5px, -5px);
     }
-    
-    .nav-links {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 85%;
-      max-width: 380px;
-      background: var(--primary-white);
-      flex-direction: column;
-      align-items: stretch;
-      padding: 5rem 1.5rem 2rem;
-      gap: 0.25rem;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      box-shadow: -5px 0 30px rgba(0,0,0,0.2);
-      max-height: 100vh;
-      overflow-y: auto;
-      z-index: 999;
-    }
 
     .nav-links.active {
       transform: translateX(0);
     }
 
-    .nav-link {
-      font-size: 1.05rem;
-      padding: 0.8rem 1rem;
-      width: 100%;
-      text-align: left;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-    }
 
     .nav-link:hover {
       box-shadow: 0 2px 8px rgba(101, 45, 144, 0.1);
@@ -336,15 +308,6 @@ const currentPath = Astro.url.pathname;
 
     .dropdown {
       width: 100%;
-    }
-
-    .dropdown-toggle {
-      width: 100%;
-      justify-content: space-between;
-      text-align: left;
-      font-size: 1.05rem;
-      padding: 0.8rem 1rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     }
 
     .dropdown-toggle:hover {
@@ -375,36 +338,6 @@ const currentPath = Astro.url.pathname;
       transform: rotate(180deg);
     }
 
-    .mega-menu {
-      width: 100%;
-      padding: 0.5rem 0 0.5rem 0.5rem;
-    }
-
-    .mega-menu-grid {
-      grid-template-columns: 1fr;
-      gap: 0.5rem;
-    }
-
-    .mega-column {
-      background: var(--gray-100);
-      border-radius: 10px;
-      padding: 0.75rem 1rem;
-    }
-
-    .mega-column h4 {
-      text-align: left;
-      border-bottom: none;
-      margin-bottom: 0.35rem;
-      font-size: 0.7rem;
-    }
-
-    .mega-column a {
-      text-align: left;
-      box-shadow: none;
-      padding: 0.45rem 0.5rem;
-      font-size: 0.9rem;
-    }
-
     .simple-menu {
       width: 100%;
       padding: 0.5rem 0 0.5rem 0.5rem;
@@ -429,6 +362,93 @@ const currentPath = Astro.url.pathname;
       width: 100%;
       text-align: center;
       box-shadow: 0 4px 12px rgba(36, 54, 120, 0.2);
+    }
+      .nav-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 85%;
+      max-width: 400px;
+      background: var(--primary-white);
+      flex-direction: column;
+      align-items: stretch;
+      padding: 5rem 1.5rem 2rem;
+      gap: 0.5rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      box-shadow: -5px 0 30px rgba(0,0,0,0.2);
+      max-height: 100vh;
+      overflow-y: auto;
+      z-index: 999;
+    }
+
+    .mega-column{
+      display: none;
+    }
+    
+    .nav-link {
+      font-size: 1.1rem;
+      padding: 1rem 1.25rem;
+      width: 100%;
+      text-align: left;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      font-weight: 500;
+    }
+
+    .dropdown-toggle {
+      width: 100%;
+      justify-content: space-between;
+      text-align: left;
+      font-size: 1.1rem;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      font-weight: 500;
+    }
+    .simple-menu {
+      position: static;
+      box-shadow: none;
+      border: none;
+      padding: 0.25rem 0;
+      background: transparent;
+      border-radius: 0;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      display: none;
+      width: 100%;
+      margin: 0;
+      pointer-events: all;
+    }
+
+    .dropdown.open
+    .dropdown.open .simple-menu {
+      display: block;
+    }
+
+    .simple-menu {
+      width: 100%;
+      padding: 0.25rem 0 0.5rem 1rem;
+    }
+
+    .simple-menu ul {
+      background: var(--gray-100);
+      border-radius: 10px;
+      padding: 0.5rem 0.75rem;
+    }
+
+    .simple-menu a {
+      text-align: left;
+      box-shadow: none;
+      padding: 0.7rem 0.85rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      margin-bottom: 0.1rem;
+    }
+
+    .simple-menu a:last-child {
+      margin-bottom: 0;
     }
   }
 </style>

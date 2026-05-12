@@ -8,20 +8,6 @@ const destinations = {
     { name: 'United Kingdom', slug: 'u-k', flag: '🇬🇧', description: 'Centuries of academic excellence with shorter course durations and 2-year post-study work visa.' },
     { name: 'Australia', slug: 'australia', flag: '🇦🇺', description: '7 of world\'s top 100 universities with multicultural environment and post-study work rights.' },
     { name: 'New Zealand', slug: 'new-zealand', flag: '🇳🇿', description: 'All 8 universities in global top 3% with safe environment and pathway to residency.' }
-  ],
-  europe: [
-    { name: 'France', slug: 'france', flag: '🇫🇷', description: 'Global leader in arts, fashion, and business with affordable public university tuition.' },
-    { name: 'Ireland', slug: 'ireland', flag: '🇮🇪', description: 'English-speaking EU hub for tech companies with 2-year post-study work visa.' },
-    { name: 'Finland', slug: 'finland', flag: '🇫🇮', description: 'World-famous education system focused on innovation, research, and student well-being.' },
-    { name: 'Denmark', slug: 'denmark', flag: '🇩🇰', description: 'Pioneer in sustainable energy and design with interactive, student-centered teaching.' },
-    { name: 'Germany', slug: 'germany', flag: '🇩🇪', description: 'Free or very low tuition at public universities with 18-month post-study job search visa.' },
-    { name: 'Netherlands', slug: 'the-netherlands', flag: '🇳🇱', description: 'Over 2,100 English-taught programs with innovative teaching and Orientation Year visa.' },
-    { name: 'Malta', slug: 'malta', flag: '🇲🇹', description: 'English-speaking Mediterranean EU country with affordable education and growing tech industry.' }
-  ],
-  asia: [
-    { name: 'India', slug: 'india', flag: '🇮🇳', description: 'Affordable quality education with globally recognized IITs, IIMs, and booming IT industry.' },
-    { name: 'Japan', slug: 'japan', flag: '🇯🇵', description: 'World leader in technology and robotics with generous MEXT scholarships for international students.' },
-    { name: 'Philippines', slug: 'philippines', flag: '🇵🇭', description: 'English-medium instruction at very affordable costs with excellent medical and nursing programs.' }
   ]
 };
 ---
@@ -55,42 +41,6 @@ const destinations = {
           ))}
         </div>
       </div>
-
-      <!-- Europe -->
-      <div class="continent-section reveal">
-        <h2 class="continent-heading">Europe</h2>
-        <div class="destinations-grid">
-          {destinations.europe.map(dest => (
-            <a href={`/study-in-${dest.slug}`} class="destination-card">
-              <span class="card-flag">{dest.flag}</span>
-              <div class="card-content">
-                <h3>{dest.name}</h3>
-                <p>{dest.description}</p>
-                <span class="card-link">Learn More →</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <!-- Asia -->
-      <div class="continent-section reveal">
-        <h2 class="continent-heading">Asia</h2>
-        <div class="destinations-grid">
-          {destinations.asia.map(dest => (
-            <a href={`/study-in-${dest.slug}`} class="destination-card">
-              <span class="card-flag">{dest.flag}</span>
-              <div class="card-content">
-                <h3>{dest.name}</h3>
-                <p>{dest.description}</p>
-                <span class="card-link">Learn More →</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- CTA -->
   <section class="cta-section">
