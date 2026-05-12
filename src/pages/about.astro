@@ -28,58 +28,33 @@ import MainLayout from '../layouts/MainLayout.astro';
   </section>
 
   <!-- Core Values -->
+  <!-- Core Values -->
   <section class="section bg-light">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-label">Our Foundation</span>
         <h2>Core Values & Ethical Principles</h2>
-        <p>Our core values tell us, our clients, and the communities we serve, who we really are, what we are about, and the principles by which we pledge to conduct business. In essence, we believe that success can only be achieved by living our core values and principles. Keeping this in mind, we assist students by giving exhaustive information about study opportunities worldwide.</p>
+        <p>Our core values tell us, our clients, and the communities we serve, who we serve, who we really are, what we are about, and the principles by which we pledge to conduct business. In essence, believe that success can only be achieved by living our core values and principles. Keeping this in mind, we assist students by giving exhaustive information about study opportunities worldwide.</p>
       </div>
 
-      <div class="values-grid">
-        <div class="value-card reveal">
-          <div class="value-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-              <circle cx="12" cy="7" r="4"/>
-            </svg>
-          </div>
+      <div class="values-list reveal">
+        <div class="value-item">
           <h3>Customer Focus</h3>
           <p>Our customer/client is students and parents. At Link Wave Global Study, our prime focus is to perfect our client/customer service. Customers are our first priority and driving force. We wish to gain customer confidence and be their trusted partner.</p>
         </div>
-
-        <div class="value-card reveal">
-          <div class="value-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-            </svg>
-          </div>
+        
+        <div class="value-item">
           <h3>Quality</h3>
-          <p>We believe that quality service experience is paramount to our customers and we are strongly committed to fulfilling this ideal with every interaction.</p>
+          <p>We believe that quality service experience is paramount to our customers and we are strongly committed to fulfilling this ideal.</p>
         </div>
-
-        <div class="value-card reveal">
-          <div class="value-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-          </div>
+        
+        <div class="value-item">
           <h3>Honesty & Integrity</h3>
           <p>We ensure the highest level of integrity to our clients, creating an ongoing relationship of trust and confidence. We treat our customers with honesty, fairness, and respect.</p>
         </div>
-
-        <div class="value-card reveal">
-          <div class="value-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M17 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M7 21v-2a4 4 0 0 1 3-3.87"/>
-              <circle cx="12" cy="7" r="4"/>
-              <path d="M12 15v3"/>
-              <path d="M9 18h6"/>
-            </svg>
-          </div>
+        
+        <div class="value-item">
           <h3>Team Work Approach</h3>
-          <p>Link Wave Global Study is not a one man show. We believe in teamwork and feel that a loyal and motivated team can produce extraordinary results. We are driven by a performance culture where recognition and rewards are based on individual merit and demonstrated track record. In the next five year policy, the company has planned to open more branches in the major cities of Nepal.</p>
+          <p>Link Wave Global Study is not a one man show. We believe in teamwork and feel that a loyal and motivated team can produce extraordinary results. We are driven by a performance culture where recognition and rewards are based on individual merit and demonstrated track record. In the next five year policy of the company, the company has planned to open its more branches in the major cities of Nepal.</p>
         </div>
       </div>
     </div>
@@ -88,23 +63,23 @@ import MainLayout from '../layouts/MainLayout.astro';
   <!-- Mission, Vision, Goals -->
   <section class="section">
     <div class="container">
-      <div class="mvg-grid">
-        <div class="mvg-card reveal">
+      <div class="mvg-list reveal">
+        <div class="mvg-item">
           <h3>Objective</h3>
           <p>Link Wave Global Study aims to provide comprehensive support for students and professionals seeking international education and career opportunities. We simplify the study abroad process through expert counseling, visa assistance, test preparation (IELTS, PTE, Japanese), and scholarship guidance, ensuring a smooth and informed journey.</p>
         </div>
-
-        <div class="mvg-card reveal">
+        
+        <div class="mvg-item">
           <h3>Vision</h3>
           <p>We aspire to be the market leaders in study abroad guidance by encouraging and empowering globalization of education providers from around the globe, the connect for further academic learning and exchange.</p>
         </div>
-
-        <div class="mvg-card reveal">
+        
+        <div class="mvg-item">
           <h3>Goals</h3>
           <p>Link Wave Global Study is one of the fastest-growing Education Agencies and is one of the most trusted names for genuine and professional guidance to students for Study Abroad. With a team of Certified and professional counselors, we are ready to hold your hand at every step of your Study Abroad process.</p>
         </div>
-
-        <div class="mvg-card reveal">
+        
+        <div class="mvg-item">
           <h3>Mission</h3>
           <p>To be a leading educational consultancy delivering world class service through state-of-the-art technology and visionary management in partnership with competent and committed staff, to achieve sound financial health with sustainable value addition to all our stakeholders. We are committed to do this mission while ensuring the highest levels of ethical standards, professional integrity, corporate governance and regulatory compliance.</p>
         </div>
@@ -122,10 +97,38 @@ import MainLayout from '../layouts/MainLayout.astro';
       
       <div class="team-card reveal">
         <div class="team-avatar">
-          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
+          <?xml version="1.0" encoding="utf-8"?>
+          <!-- Generator: Adobe Illustrator 27.5.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          viewBox="0 0 2200 2200" style="enable-background:new 0 0 2200 2200;" xml:space="preserve">
+        <g id="Background">
+          <rect style="fill:#FFFFFF;" width="2200" height="2200"/>
+        </g>
+        <g id="Objects">
+          <g>
+            <radialGradient id="SVGID_1_" cx="742.4818" cy="737.5518" r="1257.2716" gradientUnits="userSpaceOnUse">
+              <stop  offset="0" style="stop-color:#63DFFC"/>
+              <stop  offset="1" style="stop-color:#3F7CD1"/>
+            </radialGradient>
+            <path style="fill:url(#SVGID_1_);" d="M1903,1100c0,215.52-84.91,411.21-223.1,555.44C1533.74,1808.01,1327.96,1903,1100,1903
+              s-433.74-94.99-579.9-247.56C381.91,1511.21,297,1315.52,297,1100c0-443.48,359.52-803,803-803S1903,656.52,1903,1100z"/>
+            
+              <radialGradient id="SVGID_00000104698309287865493900000001749800286949306755_" cx="1024.0569" cy="699.494" r="480.5576" gradientUnits="userSpaceOnUse">
+              <stop  offset="0" style="stop-color:#FFFFFF"/>
+              <stop  offset="0.9989" style="stop-color:#D1D1D1"/>
+            </radialGradient>
+            <circle style="fill:url(#SVGID_00000104698309287865493900000001749800286949306755_);" cx="1100" cy="815.047" r="328.046"/>
+            
+              <radialGradient id="SVGID_00000123438996930488595010000002696201408001185471_" cx="965.7524" cy="1455.6234" r="674.9591" gradientUnits="userSpaceOnUse">
+              <stop  offset="0" style="stop-color:#FFFFFF"/>
+              <stop  offset="0.9989" style="stop-color:#D1D1D1"/>
+            </radialGradient>
+            <path style="fill:url(#SVGID_00000123438996930488595010000002696201408001185471_);" d="M1679.9,1655.44
+              C1533.74,1808.01,1327.96,1903,1100,1903s-433.74-94.99-579.9-247.56c82.54-240.93,311-414.12,579.9-414.12
+              S1597.36,1414.51,1679.9,1655.44z"/>
+          </g>
+        </g>
+        </svg>
         </div>
         <div class="team-info">
           <h3>Kapur Thapa</h3>
@@ -170,7 +173,6 @@ import MainLayout from '../layouts/MainLayout.astro';
 </MainLayout>
 
 <style>
-  /* Hero Section */
   /* Hero Section */
   .about-hero {
     position: relative;
@@ -291,79 +293,63 @@ import MainLayout from '../layouts/MainLayout.astro';
   }
 
   /* Values Grid */
-  .values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+  .values-list {
+    max-width: 750px;
+    margin: 0 auto;
   }
 
-  .value-card {
-    background: var(--primary-white);
-    padding: 2.5rem 2rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-    transition: all var(--transition);
-    border-top: 4px solid transparent;
+  .value-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--gray-200);
   }
 
-  .value-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(36, 54, 120, 0.12);
-    border-top-color: var(--tertiary);
+  .value-item:first-child {
+    padding-top: 0;
   }
 
-  .value-icon {
-    color: var(--tertiary);
-    margin-bottom: 1.5rem;
-    width: 60px;
-    height: 60px;
-    background: rgba(101, 45, 144, 0.08);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .value-item:last-child {
+    border-bottom: none;
   }
 
-  .value-card h3 {
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
+  .value-item h3 {
+    color: var(--secondary);
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
   }
 
-  .value-card p {
+  .value-item p {
     color: #555;
-    line-height: 1.7;
+    line-height: 1.8;
   }
-
   /* MVG Grid */
-  .mvg-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+  .mvg-list {
+    max-width: 750px;
+    margin: 0 auto;
   }
 
-  .mvg-card {
-    background: var(--gray-100);
-    padding: 2.5rem 2rem;
-    border-radius: 12px;
-    border-left: 4px solid var(--secondary);
-    transition: all var(--transition);
+  .mvg-item {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--gray-200);
   }
 
-  .mvg-card:hover {
-    background: var(--primary-white);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    border-left-color: var(--tertiary);
+  .mvg-item:first-child {
+    padding-top: 0;
   }
 
-  .mvg-card h3 {
-    color: var(--tertiary);
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
+  .mvg-item:last-child {
+    border-bottom: none;
   }
 
-  .mvg-card p {
+  .mvg-item h3 {
+    color: var(--secondary);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .mvg-item p {
     color: #555;
-    line-height: 1.7;
+    line-height: 1.8;
+    font-size: 1.05rem;
   }
 
   /* Team Card */

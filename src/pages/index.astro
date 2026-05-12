@@ -11,6 +11,19 @@ const news = await fetchNews();
 >
   <!-- Hero Section -->
   <section class="hero">
+    <!-- Background Image Container -->
+    <div class="hero-bg">
+      <img 
+        src="home.jpeg" 
+        alt="Link Wave Global Study Office"
+        class="hero-bg-image"
+      />
+    </div>
+    
+    <!-- Dark Overlay -->
+    <div class="hero-overlay"></div>
+    
+    <!-- Content -->
     <div class="container hero-grid">
       <div class="hero-content reveal">
         <span class="pretitle">Link Wave Global Study</span>
@@ -18,11 +31,11 @@ const news = await fetchNews();
         <p class="hero-description">Your trusted partner for international education. We guide Nepali students to top universities across 10+ countries with expert counseling, test preparation, and visa assistance.</p>
         <div class="hero-actions">
           <a href="/contact-us" class="btn btn-primary">Consult Now</a>
-          <a href="#callback" class="btn btn-outline">Request Expert Call Back</a>
+          <a href="#callback" class="btn btn-outline-white">Request Expert Call Back</a>
         </div>
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-number">10+</span>
+            <span class="stat-number">5+</span>
             <span class="stat-label">Countries</span>
           </div>
           <div class="stat">
@@ -35,62 +48,64 @@ const news = await fetchNews();
           </div>
           <div class="stat">
             <span class="stat-number">10+</span>
-            <span class="stat-label">Experienced Staff</span>
+            <span class="stat-label">Years Experience</span>
           </div>
         </div>
-      </div>
-      
-      <!-- Quick Callback Form -->
-      <div class="callback-card reveal" id="callback">
-        <h3>Request a Call Back</h3>
-        <p>Connect with our team now</p>
-        <form class="callback-form">
-          <input type="text" placeholder="Enter your full name" required />
-          <input type="tel" placeholder="Phone number" required />
-          <button type="submit" class="btn btn-primary btn-full">Send</button>
-        </form>
-      </div>
-    </div>
+      </div> 
   </section>
 
-    <!-- Explore Destinations -->
+  <!-- Destinations -->
   <section class="section">
     <div class="container">
       <div class="section-intro reveal">
-        <h2>Explore Our Top Destinations</h2>
-        <p>Our experienced counselors possess a deep understanding of international education systems and university admissions requirements. We leverage our extensive global network of partnerships with over 500 leading institutions.</p>
+        <h2>Find the Right Destination</h2>
+        <p>Expert guidance for top study destinations with over 500 leading institutions worldwide</p>
       </div>
 
-      <div class="destinations-grid-large reveal">
-        <a href="/study-in-u-s" class="dest-card-large">
-          <span class="dest-flag">🇺🇸</span>
-          <h3>United States</h3>
-          <span class="dest-university">Harvard, MIT, Stanford</span>
-          <span class="dest-link">Explore →</span>
+      <div class="destinations-grid reveal">
+        <a href="/study-in-u-s" class="dest-card">
+          <div class="dest-card-bg" style="background-image: url('us.jpeg')"></div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-content">
+            <h3>United States</h3>
+            <p class="dest-unis">Harvard, MIT, Stanford, Columbia, UC Berkeley</p>
+          </div>
         </a>
-        <a href="/study-in-u-k" class="dest-card-large">
-          <span class="dest-flag">🇬🇧</span>
-          <h3>United Kingdom</h3>
-          <span class="dest-university">Oxford, Cambridge, Imperial</span>
-          <span class="dest-link">Explore →</span>
+
+        <a href="/study-in-u-k" class="dest-card">
+          <div class="dest-card-bg" style="background-image: url('uk.jpeg')"></div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-content">
+            <h3>United Kingdom</h3>
+            <p class="dest-unis">Oxford, Cambridge, Imperial, UCL, Edinburgh</p>
+          </div>
         </a>
-        <a href="/study-in-canada" class="dest-card-large">
-          <span class="dest-flag">🇨🇦</span>
-          <h3>Canada</h3>
-          <span class="dest-university">Toronto, UBC, McGill</span>
-          <span class="dest-link">Explore →</span>
+
+        <a href="/study-in-canada" class="dest-card">
+          <div class="dest-card-bg" style="background-image: url('canada.jpeg')"></div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-content">
+            <h3>Canada</h3>
+            <p class="dest-unis">Toronto, UBC, McGill, Alberta, Waterloo</p>
+          </div>
         </a>
-        <a href="/study-in-australia" class="dest-card-large">
-          <span class="dest-flag">🇦🇺</span>
-          <h3>Australia</h3>
-          <span class="dest-university">Melbourne, Sydney, ANU</span>
-          <span class="dest-link">Explore →</span>
+
+        <a href="/study-in-australia" class="dest-card">
+          <div class="dest-card-bg" style="background-image: url('aus.jpeg')"></div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-content">
+            <h3>Australia</h3>
+            <p class="dest-unis">Melbourne, Sydney, ANU, UQ, UNSW</p>
+          </div>
         </a>
-        <a href="/study-in-new-zealand" class="dest-card-large">
-          <span class="dest-flag">🇳🇿</span>
-          <h3>New Zealand</h3>
-          <span class="dest-university">Auckland, Otago, Victoria</span>
-          <span class="dest-link">Explore →</span>
+
+        <a href="/study-in-new-zealand" class="dest-card">
+          <div class="dest-card-bg" style="background-image: url('nz.jpeg')"></div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-content">
+            <h3>New Zealand</h3>
+            <p class="dest-unis">Auckland, Otago, Victoria, Canterbury, Massey</p>
+          </div>
         </a>
       </div>
     </div>
@@ -283,20 +298,6 @@ const news = await fetchNews();
           <p class="testimonial-text">"The guidance I received for my study abroad process was outstanding. They helped me choose the right university, prepared my documents, and even assisted with my visa. The staff is professional and truly cares about students' futures."</p>
         </div>
       </div>
-
-      <div class="rating-badges reveal">
-        <a style="text-decoration: none;" href="https://www.facebook.com/linkwave.global1/">
-        <div class="rating-badge">
-          <span>Rate Us on Facebook</span>
-          <div class="stars">★★★★★</div>
-        </div></a>
-        <a style="text-decoration: none;" href="https://www.google.com/search?q=linkwave+consultancy"
-        <div class="rating-badge">
-          <span>Rate Us on Google</span>
-          <div class="stars">★★★★★</div>
-        </div>></a>
-      </div>
-    </div>
   </section>
 
   <!-- News Section -->
@@ -332,34 +333,6 @@ const news = await fetchNews();
         </div>
       ) : (
         <div class="news-grid">
-          <div class="news-card reveal">
-            <div class="news-placeholder"></div>
-            <div class="news-card-content">
-              <h3>Study in Australia: Your Gateway to World-Class Education</h3>
-              <p>Australia is home to top institutions like the University of...</p>
-            </div>
-          </div>
-          <div class="news-card reveal">
-            <div class="news-placeholder"></div>
-            <div class="news-card-content">
-              <h3>A Comprehensive Guide to Studying at the Best Universities in the UK</h3>
-              <p>Study in the UK, Link Wave Global Study offers a...</p>
-            </div>
-          </div>
-          <div class="news-card reveal">
-            <div class="news-placeholder"></div>
-            <div class="news-card-content">
-              <h3>Study in Japan – A Rising Destination for Global Students!</h3>
-              <p>Japan is fast becoming a top destination for international students...</p>
-            </div>
-          </div>
-          <div class="news-card reveal">
-            <div class="news-placeholder"></div>
-            <div class="news-card-content">
-              <h3>Preparing for Your IELTS & PTE Exams – Expert Tips!</h3>
-              <p>Planning to take the IELTS or PTE exam for studying...</p>
-            </div>
-          </div>
         </div>
       )}
     </div>
@@ -526,57 +499,109 @@ const news = await fetchNews();
   }
   /* Hero Section */
   .hero {
-    padding: 5rem 0;
-    background: var(--primary-white);
-    border-bottom: 1px solid var(--gray-200);
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: var(--primary-white);
   }
 
+  /* Background Image */
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: blur(3px) brightness(0.6);
+    transform: scale(1.05);
+  }
+
+  /* Dark Overlay */
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      160deg,
+      rgba(36, 54, 120, 0.92) 0%,
+      rgba(36, 54, 120, 0.85) 40%,
+      rgba(101, 45, 144, 0.8) 100%
+    );
+    z-index: 1;
+  }
+
+  /* Content on top */
   .hero-grid {
+    position: relative;
+    z-index: 2;
     display: grid;
-    grid-template-columns: 1fr 400px;
+    grid-template-columns: 1fr 380px;
     gap: 4rem;
-    align-items: start;
+    align-items: center;
+    padding: 6rem 0;
+  }
+
+  .hero-content {
+    max-width: 650px;
   }
 
   .pretitle {
     display: inline-block;
-    color: var(--tertiary);
+    color: rgba(255, 255, 255, 0.9);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.35rem 1rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   .hero-content h1 {
-    font-size: clamp(2.8rem, 5vw, 4rem);
+    color: var(--primary-white);
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
     margin-bottom: 1.5rem;
-    color: var(--secondary);
+    line-height: 1.15;
+    font-weight: 800;
   }
 
   .highlight {
-    color: var(--tertiary);
+    color: var(--primary-white);
     position: relative;
+    display: inline-block;
   }
 
   .highlight::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: 2px;
     left: 0;
     width: 100%;
-    height: 4px;
-    background: var(--tertiary);
-    opacity: 0.2;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 2px;
   }
 
   .hero-description {
-    font-size: 1.15rem;
-    color: #555;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
     margin-bottom: 2rem;
-    max-width: 600px;
     line-height: 1.7;
+    max-width: 550px;
   }
 
   .hero-actions {
@@ -586,12 +611,43 @@ const news = await fetchNews();
     flex-wrap: wrap;
   }
 
+  .hero-actions .btn-primary {
+    background: var(--primary-white);
+    color: var(--secondary);
+    font-weight: 700;
+    border: none;
+  }
+
+  .hero-actions .btn-primary:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-actions .btn-outline-white {
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    color: var(--primary-white);
+    background: transparent;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all var(--transition);
+  }
+
+  .hero-actions .btn-outline-white:hover {
+    background: var(--primary-white);
+    color: var(--secondary);
+    border-color: var(--primary-white);
+  }
+
   .hero-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     padding-top: 2rem;
-    border-top: 1px solid var(--gray-200);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .stat {
@@ -600,61 +656,18 @@ const news = await fetchNews();
 
   .stat-number {
     display: block;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 800;
-    color: var(--secondary);
+    color: var(--primary-white);
   }
 
   .stat-label {
-    font-size: 0.85rem;
-    color: #777;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.65);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
   }
 
-  /* Callback Card */
-  .callback-card {
-    background: var(--primary-white);
-    border: 2px solid var(--gray-200);
-    padding: 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  }
-
-  .callback-card h3 {
-    margin-bottom: 0.5rem;
-  }
-
-  .callback-card p {
-    color: #777;
-    margin-bottom: 1.5rem;
-    font-size: 0.9rem;
-  }
-
-  .callback-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .callback-form input {
-    padding: 0.85rem 1rem;
-    border: 2px solid var(--gray-200);
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 0.95rem;
-    transition: border-color var(--transition);
-  }
-
-  .callback-form input:focus {
-    outline: none;
-    border-color: var(--tertiary);
-  }
-
-  .btn-full {
-    width: 100%;
-    text-align: center;
-  }
 
   /* Sections */
   .section {
@@ -686,53 +699,77 @@ const news = await fetchNews();
     margin-top: 2rem;
   }
 
-  /* Destinations */
-  .destinations-grid-large {
+  .destinations-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 1.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
   }
 
-  .dest-card-large {
-    background: var(--primary-white);
-    border: 2px solid var(--gray-200);
-    padding: 2rem 1.5rem;
-    border-radius: 16px;
-    text-align: center;
+  .dest-card {
+    position: relative;
+    height: 280px;
+    border-radius: 12px;
+    overflow: hidden;
     text-decoration: none;
-    color: var(--text-dark);
-    transition: all var(--transition);
+    color: var(--primary-white);
+    display: flex;
+    align-items: flex-end;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .dest-card-large:hover {
-    border-color: var(--tertiary);
-    box-shadow: 0 12px 30px rgba(101, 45, 144, 0.1);
-    transform: translateY(-5px);
+  .dest-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(36, 54, 120, 0.2);
   }
 
-  .dest-flag {
-    font-size: 3rem;
-    display: block;
-    margin-bottom: 0.75rem;
+  .dest-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
   }
 
-  .dest-card-large h3 {
+  .dest-card:hover .dest-card-bg {
+    transform: scale(1.08);
+  }
+
+  .dest-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to top,
+      rgba(36, 54, 120, 0.9) 0%,
+      rgba(36, 54, 120, 0.5) 40%,
+      rgba(36, 54, 120, 0.2) 100%
+    );
+    z-index: 1;
+  }
+
+  .dest-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 1.5rem;
+    width: 100%;
+  }
+  
+  .dest-card h3 {
+    color: var(--primary-white);
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
+    font-weight: 700;
   }
 
-  .dest-university {
-    display: block;
-    color: #888;
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
-  }
-
-  .dest-link {
-    color: var(--tertiary);
-    font-weight: 600;
+  .dest-unis {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
   /* Services */
   .services-grid {
@@ -849,34 +886,6 @@ const news = await fetchNews();
     line-height: 1.6;
     font-size: 0.95rem;
   }
-
-
-
-  .rating-badges {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .rating-badge {
-    background: var(--gray-100);
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    text-align: center;
-  }
-
-  .rating-badge span {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-  }
-
-  .stars {
-    color: #f59e0b;
-    font-size: 1.2rem;
-  }
-
   /* News */
   .news-grid {
     display: grid;
