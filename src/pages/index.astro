@@ -374,49 +374,127 @@ const news = await fetchNews();
           
           <div class="office-details">
             <div class="office-item">
-              <span class="office-icon">📍</span>
               <strong>Office</strong>
               <p>Putalisadak, Kathmandu, Nepal (Head Office)</p>
               <p>Jadibuti, Bhaktapur, Nepal (Branch)</p>
             </div>
             <div class="office-item">
-              <span class="office-icon">📞</span>
               <strong>Phone</strong>
               <p>+(977) 01-4538899<br/>+(977) 9851410481</p>
             </div>
             <div class="office-item">
-              <span class="office-icon">✉️</span>
               <strong>Email</strong>
               <p>hello@linkwaveedu.com</p>
             </div>
           </div>
         </div>
-
         <div class="consultation-form-wrapper">
           <h3>Free Consultation</h3>
           <p>Schedule a counselling now.</p>
-          <form class="consultation-form">
+          <form class="consultation-form" id="consultationForm">
             <div class="form-row">
-              <input type="text" placeholder="First Name" required />
-              <input type="text" placeholder="Last Name" required />
+              <input type="text" name="first" placeholder="First Name" required />
+              <input type="text" name="last" placeholder="Last Name" required />
             </div>
-            <input type="tel" placeholder="Phone Number" required />
-            <input type="email" placeholder="Email" />
+            <input type="tel" name="phone" placeholder="Phone Number" required />
+            <input type="email" name="email" placeholder="Email Address" />
             <select name="destination">
               <option value="">Select your Destination</option>
               <option value="Australia">Australia</option>
               <option value="UK">United Kingdom</option>
               <option value="Canada">Canada</option>
-              <option value="New Zealand">New Zealand</option>
               <option value="USA">United States</option>
+              <option value="New Zealand">New Zealand</option>
             </select>
-            <textarea placeholder="Comment or Message" rows="3"></textarea>
+            <select name="course">
+              <option value="">Preferred Course</option>
+              <option value="IELTS">IELTS Preparation</option>
+              <option value="PTE">PTE Preparation</option>
+              <option value="Duolingo">Duolingo Test</option>
+              <option value="Japanese">Japanese</option>
+            </select>
+            <textarea name="message" placeholder="Your Message" rows="3"></textarea>
             <button type="submit" class="btn btn-primary btn-full">Submit</button>
           </form>
+          <div id="consultationStatus" style="display:none; margin-top:1rem; padding:0.75rem; border-radius:8px; text-align:center; font-size:0.9rem;"></div>
+          <div style="text-align:center; margin-top:1rem;">
+            <span style="color:#888; font-size:0.85rem;">or</span><br/>
+            <a href="https://wa.me/9779851410481?text=Hello%20Link%20Wave!%20I%20need%20free%20consultation%20for%20studying%20abroad." 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               style="display:inline-flex; align-items:center; gap:0.5rem; color:#25D366; font-weight:600; text-decoration:none; margin-top:0.5rem; font-size:0.9rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Chat on WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+  <script>
+  const consultationForm = document.getElementById('consultationForm');
+  const consultationStatus = document.getElementById('consultationStatus');
+
+  consultationForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const rawData = new FormData(consultationForm);
+    const firstName = rawData.get('first')?.trim() || '';
+    const lastName = rawData.get('last')?.trim() || '';
+    const phone = rawData.get('phone')?.trim() || '';
+    const email = rawData.get('email')?.trim() || '';
+    const destination = rawData.get('destination') || '';
+    const course = rawData.get('course') || '';
+    const message = rawData.get('message')?.trim() || '';
+
+    if (!firstName || !phone) {
+      consultationStatus.style.display = 'block';
+      consultationStatus.style.background = '#fff3cd';
+      consultationStatus.style.color = '#856404';
+      consultationStatus.textContent = 'Please fill in your name and phone number.';
+      return;
+    }
+
+    consultationStatus.style.display = 'block';
+    consultationStatus.style.background = '#e3f2fd';
+    consultationStatus.style.color = '#1565c0';
+    consultationStatus.textContent = 'Sending...';
+
+    try {
+      const response = await fetch('https://authentic-bracelet-0264bec354.strapiapp.com/api/contacts', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          data: {
+            name: `${firstName} ${lastName}`.trim(),
+            email: email,
+            phone: phone,
+            destination: destination,
+            course: course,
+            message: message,
+          }
+        }),
+      });
+
+      if (response.ok) {
+        consultationStatus.style.background = '#e8f5e9';
+        consultationStatus.style.color = '#2e7d32';
+        consultationStatus.textContent = 'Thank you! We will call you back shortly.';
+        consultationForm.reset();
+      } else {
+        throw new Error('Failed to submit');
+      }
+    } catch (error) {
+      consultationStatus.style.background = '#fff3cd';
+      consultationStatus.style.color = '#856404';
+      consultationStatus.textContent = 'Server error. Please chat with us on WhatsApp instead.';
+    }
+  });
+</script>
 </MainLayout>
 
 <style>
@@ -1020,7 +1098,7 @@ const news = await fetchNews();
 
   .form-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 0fr;
     gap: 1rem;
   }
 

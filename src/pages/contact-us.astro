@@ -12,6 +12,13 @@ import MainLayout from '../layouts/MainLayout.astro';
       <input type="text" name='name' placeholder="Your Name" required />
       <input type="email" name='email' placeholder="Your Email" required />
       <input type="text" name='phone' placeholder="Your Phone" required />
+      <select name="course">
+      <option value="">Select Preferred Course</option>
+      <option value="Australia">IELTS Exams Preparation</option>
+      <option value="UK">PTE Exams Preparation</option>
+      <option value="Canada">Duolingo</option>
+      <option value="New Zealand">Japanese Language Study Guide</option>
+      </select>
       <select name="destination">
       <option value="">Select your Destination</option>
       <option value="Australia">Australia</option>
@@ -58,6 +65,7 @@ import MainLayout from '../layouts/MainLayout.astro';
     const email = rawData.get('email')?.trim() || '';
     const phone = rawData.get('phone')?.trim() || '';
     const destination = rawData.get('destination') || '';
+    const course = rawData.get('course') || '';
     const message = rawData.get('message')?.trim() || '';
 
     // Log to debug
@@ -78,6 +86,7 @@ import MainLayout from '../layouts/MainLayout.astro';
         email,
         phone,
         destination,
+        course,
         message,
       }
     };
@@ -111,4 +120,3 @@ import MainLayout from '../layouts/MainLayout.astro';
       statusDiv.textContent = 'Unable to send message. Please call us at +977-9851410481.';
     }
   });
-</script>
