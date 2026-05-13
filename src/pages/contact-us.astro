@@ -12,13 +12,15 @@ import MainLayout from '../layouts/MainLayout.astro';
       <input type="text" name='name' placeholder="Your Name" required />
       <input type="email" name='email' placeholder="Your Email" required />
       <input type="text" name='phone' placeholder="Your Phone" required />
+
       <select name="course">
       <option value="">Select Preferred Course</option>
-      <option value="Australia">IELTS Exams Preparation</option>
-      <option value="UK">PTE Exams Preparation</option>
-      <option value="Canada">Duolingo</option>
-      <option value="New Zealand">Japanese Language Study Guide</option>
+      <option value="IELTS Exams Preparation">IELTS Exams Preparation</option>
+      <option value="PTE Exams Preparation">PTE Exams Preparation</option>
+      <option value="Duolingo">Duolingo</option>
+      <option value="Japanese Language Study Guide">Japanese Language Study Guide</option>
       </select>
+
       <select name="destination">
       <option value="">Select your Destination</option>
       <option value="Australia">Australia</option>
@@ -27,6 +29,7 @@ import MainLayout from '../layouts/MainLayout.astro';
       <option value="New Zealand">New Zealand</option>
       <option value="USA">United States</option>
       </select>
+
       <textarea name="message" placeholder="Your Message" rows="5"></textarea>
       <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
@@ -69,7 +72,7 @@ import MainLayout from '../layouts/MainLayout.astro';
     const message = rawData.get('message')?.trim() || '';
 
     // Log to debug
-    console.log('Form values:', { name, email, phone, destination, message });
+    console.log('Form values:', { name, email, phone, destination, message , course});
 
     // Validate
     if (!name || !email) {
