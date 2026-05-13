@@ -9,8 +9,9 @@ import MainLayout from '../layouts/MainLayout.astro';
   <div class="container" style="padding: 4rem 1.5rem; max-width: 600px;">
     <h1 class="reveal">Contact Us</h1>
     <form class="contact-form reveal">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
+      <input type="text" name='name' placeholder="Your Name" required />
+      <input type="email" name='email' placeholder="Your Email" required />
+      <input type="text" name='phone' placeholder="Your Phone" required />
       <select name="destination">
       <option value="">Select your Destination</option>
       <option value="Australia">Australia</option>
@@ -19,7 +20,7 @@ import MainLayout from '../layouts/MainLayout.astro';
       <option value="New Zealand">New Zealand</option>
       <option value="USA">United States</option>
       </select>
-      <textarea placeholder="Your Message" rows="5"></textarea>
+      <textarea name="message" placeholder="Your Message" rows="5"></textarea>
       <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
   </div>
@@ -48,27 +49,38 @@ import MainLayout from '../layouts/MainLayout.astro';
   statusDiv.style.cssText = 'display:none; margin-top:1rem; padding:1rem; border-radius:8px; text-align:center;';
   form.appendChild(statusDiv);
 
-  form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    const formData = {
-      data: {
-        name: form.querySelector('[name="name"]')?.value || '',
-        email: form.querySelector('[name="email"]')?.value || '',
-        phone: form.querySelector('[name="phone"]')?.value || '',
-        destination: form.querySelector('[name="destination"]')?.value || '',
-        message: form.querySelector('[name="message"]')?.value || '',
-      }
-    };
+    // Use FormData to get ALL form fields automatically
+    const rawData = new FormData(form);
+    const name = rawData.get('name')?.trim() || '';
+    const email = rawData.get('email')?.trim() || '';
+    const phone = rawData.get('phone')?.trim() || '';
+    const destination = rawData.get('destination') || '';
+    const message = rawData.get('message')?.trim() || '';
+
+    // Log to debug
+    console.log('Form values:', { name, email, phone, destination, message });
 
     // Validate
-    if (!formData.data.name || !formData.data.email) {
+    if (!name || !email) {
       statusDiv.style.display = 'block';
       statusDiv.style.background = '#fff3cd';
       statusDiv.style.color = '#856404';
-      statusDiv.textContent = 'Please fill in your name and email.';
+      statusDiv.textContent = !name ? 'Please enter your name.' : 'Please enter your email.';
       return;
     }
+
+    const formData = {
+      data: {
+        name,
+        email,
+        phone,
+        destination,
+        message,
+      }
+    };
 
     try {
       statusDiv.style.display = 'block';
@@ -76,7 +88,7 @@ import MainLayout from '../layouts/MainLayout.astro';
       statusDiv.style.color = '#2e7d32';
       statusDiv.textContent = 'Sending your message...';
 
-      const response = await fetch('http://localhost:1337/api/contacts', {
+      const response = await fetch('https://authentic-bracelet-0264bec354.strapiapp.com/api/contacts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -88,10 +100,12 @@ import MainLayout from '../layouts/MainLayout.astro';
         statusDiv.textContent = 'Message sent successfully! We will contact you within 24 hours.';
         form.reset();
       } else {
-        const error = await response.json();
-        throw new Error(error.error?.message || 'Failed');
+        const errorData = await response.json();
+        console.error('Strapi error:', errorData);
+        throw new Error(errorData.error?.message || 'Failed to submit');
       }
     } catch (error) {
+      console.error('Submit error:', error);
       statusDiv.style.background = '#ffebee';
       statusDiv.style.color = '#c62828';
       statusDiv.textContent = 'Unable to send message. Please call us at +977-9851410481.';
