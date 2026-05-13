@@ -41,3 +41,60 @@ import MainLayout from '../layouts/MainLayout.astro';
     font-family: inherit;
   }
 </style>
+
+<script>
+  const form = document.querySelector('.contact-form');
+  const statusDiv = document.createElement('div');
+  statusDiv.style.cssText = 'display:none; margin-top:1rem; padding:1rem; border-radius:8px; text-align:center;';
+  form.appendChild(statusDiv);
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = {
+      data: {
+        name: form.querySelector('[name="name"]')?.value || '',
+        email: form.querySelector('[name="email"]')?.value || '',
+        phone: form.querySelector('[name="phone"]')?.value || '',
+        destination: form.querySelector('[name="destination"]')?.value || '',
+        message: form.querySelector('[name="message"]')?.value || '',
+      }
+    };
+
+    // Validate
+    if (!formData.data.name || !formData.data.email) {
+      statusDiv.style.display = 'block';
+      statusDiv.style.background = '#fff3cd';
+      statusDiv.style.color = '#856404';
+      statusDiv.textContent = 'Please fill in your name and email.';
+      return;
+    }
+
+    try {
+      statusDiv.style.display = 'block';
+      statusDiv.style.background = '#e8f5e9';
+      statusDiv.style.color = '#2e7d32';
+      statusDiv.textContent = 'Sending your message...';
+
+      const response = await fetch('http://localhost:1337/api/contacts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        statusDiv.style.background = '#e8f5e9';
+        statusDiv.style.color = '#2e7d32';
+        statusDiv.textContent = 'Message sent successfully! We will contact you within 24 hours.';
+        form.reset();
+      } else {
+        const error = await response.json();
+        throw new Error(error.error?.message || 'Failed');
+      }
+    } catch (error) {
+      statusDiv.style.background = '#ffebee';
+      statusDiv.style.color = '#c62828';
+      statusDiv.textContent = 'Unable to send message. Please call us at +977-9851410481.';
+    }
+  });
+</script>
