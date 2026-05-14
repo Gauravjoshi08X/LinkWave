@@ -431,13 +431,22 @@ const news = await fetchNews();
       </div>
     </div>
   </section>
-
-  <script>
+<script>
   const consultationForm = document.getElementById('consultationForm');
   const consultationStatus = document.getElementById('consultationStatus');
+  let isConsultationSubmitting = false;
 
   consultationForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    
+    // Rate limiting
+    if (isConsultationSubmitting) {
+      consultationStatus.style.display = 'block';
+      consultationStatus.style.background = '#fff3cd';
+      consultationStatus.style.color = '#856404';
+      consultationStatus.textContent = 'Please wait 5 seconds before sending again.';
+      return;
+    }
     
     const rawData = new FormData(consultationForm);
     const firstName = rawData.get('first')?.trim() || '';
@@ -455,6 +464,15 @@ const news = await fetchNews();
       consultationStatus.textContent = 'Please fill in your name and phone number.';
       return;
     }
+
+    // Disable button
+    isConsultationSubmitting = true;
+    const submitBtn = consultationForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.style.opacity = '0.7';
+    submitBtn.style.cursor = 'not-allowed';
 
     consultationStatus.style.display = 'block';
     consultationStatus.style.background = '#e3f2fd';
@@ -492,6 +510,15 @@ const news = await fetchNews();
       consultationStatus.style.background = '#fff3cd';
       consultationStatus.style.color = '#856404';
       consultationStatus.textContent = 'Server error. Please chat with us on WhatsApp instead.';
+    } finally {
+      // Re-enable after 5 seconds
+      setTimeout(() => {
+        isConsultationSubmitting = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        submitBtn.style.opacity = '1';
+        submitBtn.style.cursor = 'pointer';
+      }, 5000);
     }
   });
 </script>
