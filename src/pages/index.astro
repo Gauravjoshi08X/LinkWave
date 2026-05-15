@@ -646,6 +646,22 @@ const news = await fetchNews();
     .hero {
       min-height: auto;
       flex-direction: column;
+      background: var(--secondary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: 'LW';
+      position: absolute;
+      bottom: -40px;
+      right: -20px;
+      font-size: 15rem;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.03);
+      pointer-events: none;
+      z-index: 0;
+      line-height: 1;
     }
 
     .hero-bg {
@@ -659,17 +675,16 @@ const news = await fetchNews();
     .hero-grid {
       grid-template-columns: 1fr;
       gap: 1.5rem;
-      padding: 2rem 1.5rem;
+      padding: 3rem 1.5rem;
       text-align: center;
-      order: 2;
-      background: var(--secondary);
+      background: transparent;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-content {
       text-align: center;
       margin: 0 auto;
-      margin-left: 2px;
-      margin-right: 2px;
     }
 
     .hero-content h1 {
@@ -678,7 +693,7 @@ const news = await fetchNews();
 
     .hero-description {
       font-size: 0.95rem;
-      max-width: 95%;
+      max-width: 100%;
     }
 
     .hero-actions {
@@ -693,7 +708,6 @@ const news = await fetchNews();
       max-width: 100%;
     }
   }
-
   /* Dark Overlay */
   .hero-overlay {
     position: absolute;
