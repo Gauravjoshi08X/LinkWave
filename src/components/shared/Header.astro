@@ -5,7 +5,7 @@ const currentPath = Astro.url.pathname;
 <header class="header">
   <nav class="nav container">
     <a href="/LinkWave" class="logo">
-      <img src="banner_2.png" alt="Link Wave Global Study" width="180" height="45" class="logo-image" />
+      <img src="/LinkWave/banner_2.png" alt="Link Wave Global Study" width="180" height="45" class="logo-image" />
     </a>
     
     <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -19,7 +19,7 @@ const currentPath = Astro.url.pathname;
       <li><a href="/LinkWave/about" class:list={["nav-link", { active: currentPath === '/about' }]}>Why Choose Us?</a></li>
       
       <li class="dropdown" id="dropdown1">
-        <button class="nav-link dropdown-toggle" onclick="window.location.href='LinkWave/study-abroad'" data-dropdown="dropdown1">
+        <button class="nav-link dropdown-toggle" onclick="window.location.href='/study-abroad'" data-dropdown="dropdown1">
           Study Abroad
         </button>
           <div class="dropdown-menu mega-menu">
