@@ -6,7 +6,7 @@ const news = await fetchNews();
 ---
 
 <MainLayout
-  title="Link Wave Global Study | Expert Study Abroad Consultancy in Nepal"
+  title="Link Wave Global Study - Where Ideas Link Up"
   description="Your trusted partner for international education. Expert IELTS, PTE preparation & visa processing for Australia, UK, Canada, USA, Japan & more. Based in Putalisadak, Kathmandu."
 >
   <!-- Hero Section -->
@@ -28,7 +28,7 @@ const news = await fetchNews();
       <div class="hero-content reveal">
         <span class="pretitle">Link Wave Global Study</span>
         <h1>Where Ideas <span class="highlight">Link Up</span></h1>
-        <p class="hero-description">Your trusted partner for international education. We guide Nepali students to top universities across 10+ countries with expert counseling, test preparation, and visa assistance.</p>
+        <p class="hero-description">Your trusted partner for international education. We guide students to top universities across 5+ countries with expert counseling, test preparation, and visa assistance.</p>
         <div class="hero-actions">
           <a href="/contact-us" class="btn btn-primary">Consult Now</a>
           <a href="https://wa.me/9779851410481?text=Hello%20Link%20Wave%20Global%20Study!%20I%20would%20like%20to%20know%20more%20about%20studying%20abroad." 
@@ -182,29 +182,27 @@ const news = await fetchNews();
         <p class="services-intro">At Link Wave Global Study, we offer comprehensive services to help students achieve their dream of studying abroad. From expert coaching in IELTS, PTE, and other language proficiency tests to personalized study abroad consultation, we guide you in choosing the right university and destination. Our team provides complete application assistance, including SOP writing, recommendation letters, and document preparation. We also offer visa guidance, scholarship assistance, and financial aid support to make education more accessible. With pre-departure and post-arrival support, we ensure a smooth transition to your new academic journey.</p>
         
         <div class="service-list">
-          <div class="service-item">
-            <span class="check-icon">✓</span>
-            <span>Career Counseling</span>
+          <div class="service-row">
+            <span class="service-name">Career Counseling</span>
+            <span class="service-divider"></span>
           </div>
-          <div class="service-item">
-            <span class="check-icon">✓</span>
-            <span>Accommodation Assistance</span>
+          <div class="service-row">
+            <span class="service-name">Accommodation Assistance</span>
+            <span class="service-divider"></span>
           </div>
-          <div class="service-item">
-            <span class="check-icon">✓</span>
-            <span>Part-Time Job Guidance</span>
+          <div class="service-row">
+            <span class="service-name">Part-Time Job Guidance</span>
+            <span class="service-divider"></span>
           </div>
-          <div class="service-item">
-            <span class="check-icon">✓</span>
-            <span>University Interview Preparation</span>
+          <div class="service-row">
+            <span class="service-name">University Interview Preparation</span>
+            <span class="service-divider"></span>
           </div>
-          <div class="service-item">
-            <span class="check-icon">✓</span>
-            <span>Post-Study Career Support</span>
+          <div class="service-row">
+            <span class="service-name">Post-Study Career Support</span>
+            <span class="service-divider"></span>
           </div>
         </div>
-
-        <a href="/about" class="btn btn-primary">Know More</a>
       </div>
     </div>
   </section>
@@ -261,7 +259,9 @@ const news = await fetchNews();
       <div class="testimonials-grid">
         <div class="testimonial-card reveal">
           <div class="testimonial-header">
-            <div class="testimonial-avatar">RY</div>
+            <div class="testimonial-avatar">
+              <img class="testimonial-avatar" src="RY.jpg" alt="Rakesh Yadav">
+            </div>
             <div>
               <strong>Rakesh Yadav</strong>
               <span class="testimonial-dest">Studying in UK</span>
@@ -272,7 +272,8 @@ const news = await fetchNews();
 
         <div class="testimonial-card reveal">
           <div class="testimonial-header">
-            <div class="testimonial-avatar">PP</div>
+            <div class="testimonial-avatar">
+              <img class="testimonial-avatar" src="PP.jpg" alt="Pradeep Prasad"></div>
             <div>
               <strong>Pradeep Prasad</strong>
               <span class="testimonial-dest">Studying in UK</span>
@@ -283,7 +284,9 @@ const news = await fetchNews();
 
         <div class="testimonial-card reveal">
           <div class="testimonial-header">
-            <div class="testimonial-avatar" style="background: #2d6a4f;">PK</div>
+            <div class="testimonial-avatar" style="background: #2d6a4f;">
+              <img class="testimonial-avatar" src="P.jpg" alt="Parikshid">
+            </div>
             <div>
               <strong>Parikshid</strong>
               <span class="testimonial-dest">Studying in UK</span>
@@ -294,7 +297,9 @@ const news = await fetchNews();
 
         <div class="testimonial-card reveal">
           <div class="testimonial-header">
-            <div class="testimonial-avatar" style="background: #9b2226;">BP</div>
+            <div class="testimonial-avatar" style="background: #9b2226;">
+              <img class="testimonial-avatar" src="BP.jpg" alt="Bedraj Phuyal">
+            </div>
             <div>
               <strong>Bedraj Phuyal</strong>
               <span class="testimonial-dest">Regent College</span>
@@ -932,33 +937,46 @@ const news = await fetchNews();
   }
 
   /* Additional Services */
+  .additional-services {
+    max-width: 810px;
+    margin: 0 auto;
+  }
+
   .services-intro {
     color: #555;
-    line-height: 1.8;
-    margin-bottom: 2rem;
+    line-height: 1.9;
+    margin-bottom: 2.5rem;
     font-size: 1.05rem;
   }
 
   .service-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
 
-  .service-item {
+  .service-row {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    background: var(--gray-100);
-    border-radius: 8px;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--gray-200);
   }
 
-  .check-icon {
-    color: var(--tertiary);
-    font-weight: 800;
-    font-size: 1.2rem;
+  .service-row:first-child {
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .service-name {
+    font-size: 1.05rem;
+    color: var(--secondary);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  .service-divider {
+    flex: 1;
+    height: 1px;
+    background: var(--gray-200);
+    /* margin-left: 1.5rem; */
+    opacity: 0.5;
   }
 
   /* Features Grid */
