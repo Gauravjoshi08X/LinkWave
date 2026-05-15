@@ -4,8 +4,8 @@ const currentPath = Astro.url.pathname;
 
 <header class="header">
   <nav class="nav container">
-    <a href="/" class="logo">
-      <img src="/banner_2.png" alt="Link Wave Global Study" width="180" height="45" class="logo-image" />
+    <a href="/LinkWave" class="logo">
+      <img src="banner_2.png" alt="Link Wave Global Study" width="180" height="45" class="logo-image" />
     </a>
     
     <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -15,11 +15,11 @@ const currentPath = Astro.url.pathname;
     <div class="menu-overlay" id="menuOverlay"></div>
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="/" class:list={["nav-link", { active: currentPath === '/' }]}>Home</a></li>
-      <li><a href="/about" class:list={["nav-link", { active: currentPath === '/about' }]}>Why Choose Us?</a></li>
+      <li><a href="/LinkWave" class:list={["nav-link", { active: currentPath === '/' }]}>Home</a></li>
+      <li><a href="/LinkWave/about" class:list={["nav-link", { active: currentPath === '/about' }]}>Why Choose Us?</a></li>
       
       <li class="dropdown" id="dropdown1">
-        <button class="nav-link dropdown-toggle" onclick="window.location.href='/study-abroad'" data-dropdown="dropdown1">
+        <button class="nav-link dropdown-toggle" onclick="window.location.href='LinkWave/study-abroad'" data-dropdown="dropdown1">
           Study Abroad
         </button>
           <div class="dropdown-menu mega-menu">
@@ -27,11 +27,11 @@ const currentPath = Astro.url.pathname;
             <div class="mega-column">
               <h4>Study Destinations</h4>
               <ul>
-                <li><a href="/study-in-australia">Australia</a></li>
-                <li><a href="/study-in-u-k">United Kingdom</a></li>
-                <li><a href="/study-in-canada">Canada</a></li>
-                <li><a href="/study-in-new-zealand">New Zealand</a></li>
-                <li><a href="/study-in-u-s">United States</a></li>
+                <li><a href="LinkWave/study-in-australia">Australia</a></li>
+                <li><a href="LinkWave/study-in-u-k">United Kingdom</a></li>
+                <li><a href="LinkWave/study-in-canada">Canada</a></li>
+                <li><a href="LinkWave/study-in-new-zealand">New Zealand</a></li>
+                <li><a href="LinkWave/study-in-u-s">United States</a></li>
               </ul>
             </div>
           </div>
@@ -51,10 +51,10 @@ const currentPath = Astro.url.pathname;
         </div>
       </li>
       
-      <li><a href="/news" class:list={["nav-link", { active: currentPath === '/news' }]}>News</a></li>
-      <li><a href="/gallery" class:list={["nav-link", { active: currentPath === '/gallery' }]}>Gallery</a></li>
-      <li><a href="/contact-us" class:list={["nav-link", { active: currentPath === '/contact-us' }]}>Contact Us</a></li>
-      <li><a href="/contact-us" class="nav-cta btn btn-primary">Apply</a></li>
+      <li><a href="LinkWave/news" class:list={["nav-link", { active: currentPath === '/news' }]}>News</a></li>
+      <li><a href="LinkWave/gallery" class:list={["nav-link", { active: currentPath === '/gallery' }]}>Gallery</a></li>
+      <li><a href="LinkWave/contact-us" class:list={["nav-link", { active: currentPath === '/contact-us' }]}>Contact Us</a></li>
+      <li><a href="LinkWave/contact-us" class="nav-cta btn btn-primary">Apply</a></li>
     </ul>
   </nav>
 </header>
