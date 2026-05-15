@@ -37,7 +37,7 @@ export const countries = {
       'australia': {
         name: 'Australia',
         flag: '🇦🇺',
-        banner: 'aus.jpeg',
+        banner: '/LinkWave/aus.jpeg',
         capital: 'Canberra',
         currency: 'Australian Dollar (AUD)',
         languages: 'English',
