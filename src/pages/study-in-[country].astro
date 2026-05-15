@@ -64,16 +64,63 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
   </section>
 
   <!-- Why Study Here -->
+  <!-- Why Study Here -->
   <section class="section">
     <div class="container">
-      <h2 class="section-title reveal">Why Study in {displayName}?</h2>
-      
-      <div class="benefits-grid reveal">
-        {countryData.benefits.map((benefit) => (
-          <div class="benefit-item">
-            <span>{benefit}</span>
+      <div class="why-study reveal">
+        <h2>Why {displayName} is a Great Choice for Nepali Students</h2>
+        
+        <div class="accordion-list">
+          <div class="accordion-item">
+            <button class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+              <span class="accordion-title">Globally Recognized Education</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>{displayName} is home to some of the world's top-ranked universities. Students receive internationally respected degrees that open doors to global career opportunities.</p>
+            </div>
           </div>
-        ))}
+
+          <div class="accordion-item">
+            <button class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+              <span class="accordion-title">Work Opportunities</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>International students can work part-time during their studies and access post-study work visas after graduation. This helps students gain valuable international experience and offset living costs.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+              <span class="accordion-title">Safe & Welcoming Environment</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>{displayName} is known for its multicultural society and student-friendly cities. Students find welcoming communities and strong support systems throughout their stay.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+              <span class="accordion-title">Scholarship & Financial Support</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Many universities offer scholarships specifically for international students. Link Wave helps students identify and apply for these opportunities to make education more affordable.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+              <span class="accordion-title">Pathway to Residency</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Studying in {displayName} can be the first step toward permanent residency. Post-study work experience creates pathways for long-term settlement for Nepali graduates.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -340,38 +387,84 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
     color: #555;
     line-height: 1.7;
   }
-
   /* Benefits */
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-    max-width: 900px;
+  .why-study {
+    max-width: 750px;
     margin: 0 auto;
   }
 
-  .benefit-item {
+  .why-study h2 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .accordion-list {
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .accordion-header {
+    width: 100%;
     display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding: 1rem 1.25rem;
-    background: var(--primary-white);
-    border-radius: 8px;
-    border: 1px solid var(--gray-200);
-    transition: all var(--transition);
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+    transition: all 0.2s;
   }
 
-  .benefit-item:hover {
-    border-color: var(--tertiary);
-    box-shadow: 0 2px 8px rgba(101, 45, 144, 0.08);
-  }
-
-  .benefit-icon {
+  .accordion-header:hover {
     color: var(--tertiary);
-    flex-shrink: 0;
-    margin-top: 2px;
   }
 
+  .accordion-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--secondary);
+    padding-right: 1rem;
+  }
+
+  .accordion-header:hover .accordion-title {
+    color: var(--tertiary);
+  }
+
+  .accordion-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #999;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .accordion-item.open .accordion-icon {
+    transform: rotate(45deg);
+  }
+
+  .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .accordion-item.open .accordion-body {
+    max-height: 200px;
+    padding-bottom: 1.25rem;
+  }
+
+  .accordion-body p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1rem;
+    margin: 0;
+  }
+  
   /* Info Card */
   .info-card {
     background: var(--primary-white);
