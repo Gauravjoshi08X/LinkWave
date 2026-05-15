@@ -977,13 +977,17 @@ const news = await fetchNews();
     line-height: 1.5;
   }
 
-    @media (max-width: 600px) {
+  @media (max-width: 600px) {
     .destinations-grid {
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 1rem;
     }
+    
+    .dest-card {
+      width: 100%;
+    }
   }
-  
   /* Services */
   .services-grid {
     display: grid;
