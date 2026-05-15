@@ -17,6 +17,38 @@ if (!countryData) {
 
 const displayName = countryData.name;
 const description = `Comprehensive guide to studying in ${displayName}. Learn about top universities, visa requirements, costs, popular courses, and student life. Expert guidance from Link Wave Global Study.`;
+
+function getBenefitDescription(benefit, country) {
+  const descriptions = {
+    'Globally recognized qualifications and degrees': `${country} degrees are respected worldwide. graduates find their qualifications valued by employers and institutions across the globe, opening doors to international careers.`,
+    'Post-study work rights up to 4 years': `After completing your studies, you can stay and work in ${country}, gaining valuable international experience. This is a major advantage for students looking to build a global career.`,
+    'Part-time work allowed during studies': `As an international student, you can work part-time while studying, helping you manage living expenses and gain practical experience in ${country}'s job market.`,
+    'Safe and welcoming multicultural society': `${country} is home to students from all over the world. students find a warm, inclusive environment with established communities and strong support networks.`,
+    'Stunning natural landscapes and high quality of life': `Beyond academics, ${country} offers an exceptional quality of life. From vibrant cities to breathtaking nature, it's an enriching experience for students.`,
+    'Strong economy with excellent job prospects': `${country}'s robust economy creates numerous opportunities for graduates. Sectors like technology, healthcare, and engineering actively seek international talent.`,
+    'World-renowned universities with centuries of academic tradition': `Institutions in ${country} have shaped global education for generations. students benefit from world-class teaching, research facilities, and prestigious alumni networks.`,
+    'Shorter course duration saves time and money': `Programs in ${country} are typically shorter than in other destinations. students can complete their studies faster, reducing both tuition fees and living costs.`,
+    '2-year post-study work visa': `The Graduate Route allows students to work in ${country} for up to 2 years after graduation, providing a pathway to international work experience.`,
+    'Access to world-class research facilities': `${country} invests heavily in research and innovation. Students get hands-on experience with cutting-edge technology and work alongside leading researchers.`,
+    'Rich cultural heritage and diverse student life': `Studying in ${country} means immersing yourself in a rich cultural experience. students enjoy a vibrant campus life and exposure to diverse perspectives.`,
+    'NHS healthcare access for international students': `International students in ${country} can access the national healthcare system, ensuring peace of mind for families concerned about their children's wellbeing abroad.`,
+    'Clear pathway to Permanent Residency': `Many students choose ${country} because of its clear immigration pathways. Your study journey can be the first step toward long-term settlement.`,
+    'Affordable tuition fees compared to US/UK': `${country} offers world-class education at more accessible costs. This makes it an attractive option for families seeking quality education within budget.`,
+    'Post-Graduation Work Permit up to 3 years': `Graduates can work in ${country} for up to 3 years after completing their studies. This provides ample time for students to gain meaningful work experience.`,
+    'Bilingual country': `As a bilingual nation, ${country} offers students the unique opportunity to learn an additional language while studying, enhancing their global employability.`,
+    'Co-op and internship opportunities': `${country}'s education system emphasizes practical learning. students gain real-world experience through paid internships integrated into their programs.`,
+    'All 8 universities in global top 3%': `Despite its small size, ${country} punches above its weight in education. students receive quality education at globally recognized institutions.`,
+    'Safe and politically stable country': `${country} is consistently ranked among the safest countries in the world. parents can rest assured about their children's security.`,
+    'Affordable living cost in many regions': `Compared to other English-speaking destinations, ${country} offers a more affordable cost of living, making it accessible for middle-class families.`,
+    'Largest number of top-ranked universities globally': `With thousands of institutions, ${country} offers unmatched variety. students can find programs perfectly matched to their interests and career goals.`,
+    'Flexible education system': `The ${country} education system allows students to explore different subjects before declaring a major. This flexibility helps students discover their true passion.`,
+    'Optional Practical Training (OPT) up to 3 years for STEM': `STEM graduates from backgrounds can work in ${country} for up to 3 years after graduation, gaining invaluable experience in their field.`,
+    'Extensive scholarship and funding opportunities': `${country} institutions offer generous scholarships. Link Wave helps students identify and secure these financial aid opportunities.`,
+    'Diverse campus life and cultural experiences': `Campuses in ${country} are melting pots of cultures. students make friends from around the world and build lifelong international networks.`,
+  };
+
+  return descriptions[benefit] || `${benefit} - This is one of the key advantages of studying in ${country} that students greatly benefit from during their international education journey.`;
+}
 ---
 
 <MainLayout
@@ -64,62 +96,23 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
   </section>
 
   <!-- Why Study Here -->
-  <!-- Why Study Here -->
   <section class="section">
     <div class="container">
       <div class="why-study reveal">
         <h2>Why {displayName} is a Great Choice for Nepali Students</h2>
         
-        <div class="accordion-list">
-          <div class="accordion-item">
-            <button class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
-              <span class="accordion-title">Globally Recognized Education</span>
-              <span class="accordion-icon">+</span>
-            </button>
-            <div class="accordion-body">
-              <p>{displayName} is home to some of the world's top-ranked universities. Students receive internationally respected degrees that open doors to global career opportunities.</p>
+        <div class="accordion-list" id="accordionList">
+          {countryData.benefits.map((benefit, i) => (
+            <div class="accordion-item">
+              <button class="accordion-header" data-index={i}>
+                <span class="accordion-title">{benefit}</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p>{getBenefitDescription(benefit, displayName)}</p>
+              </div>
             </div>
-          </div>
-
-          <div class="accordion-item">
-            <button class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
-              <span class="accordion-title">Work Opportunities</span>
-              <span class="accordion-icon">+</span>
-            </button>
-            <div class="accordion-body">
-              <p>International students can work part-time during their studies and access post-study work visas after graduation. This helps students gain valuable international experience and offset living costs.</p>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <button class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
-              <span class="accordion-title">Safe & Welcoming Environment</span>
-              <span class="accordion-icon">+</span>
-            </button>
-            <div class="accordion-body">
-              <p>{displayName} is known for its multicultural society and student-friendly cities. Students find welcoming communities and strong support systems throughout their stay.</p>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <button class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
-              <span class="accordion-title">Scholarship & Financial Support</span>
-              <span class="accordion-icon">+</span>
-            </button>
-            <div class="accordion-body">
-              <p>Many universities offer scholarships specifically for international students. Link Wave helps students identify and apply for these opportunities to make education more affordable.</p>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <button class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
-              <span class="accordion-title">Pathway to Residency</span>
-              <span class="accordion-icon">+</span>
-            </button>
-            <div class="accordion-body">
-              <p>Studying in {displayName} can be the first step toward permanent residency. Post-study work experience creates pathways for long-term settlement for Nepali graduates.</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
@@ -137,14 +130,16 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
       <div class="universities-grid reveal">
         {countryData.topUniversities.map((uni) => (
           <a href={uni.url} target="_blank" rel="noopener noreferrer" class="uni-card">
-            <div class="uni-rank-badge">#{uni.rank}</div>
-            <div class="uni-info">
+            {uni.image ? (
+              <div class="uni-card-bg" style={`background-image: url('${uni.image}')`}></div>
+            ) : (
+              <div class="uni-card-placeholder"></div>
+            )}
+            <div class="uni-card-overlay"></div>
+            <div class="uni-card-content">
+              <div class="uni-rank-badge">#{uni.rank}</div>
               <span class="uni-name">{uni.name}</span>
-              <span class="uni-rank-label">Global Rank</span>
             </div>
-            <span class="uni-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </span>
           </a>
         ))}
       </div>
@@ -387,6 +382,7 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
     color: #555;
     line-height: 1.7;
   }
+
   /* Benefits */
   .why-study {
     max-width: 750px;
@@ -399,11 +395,11 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
   }
 
   .accordion-list {
-    border-top: 1px solid var(--gray-200);
+    border-top: 2px solid var(--gray-200);
   }
 
   .accordion-item {
-    border-bottom: 1px solid var(--gray-200);
+    border-bottom: 2px solid var(--gray-200);
   }
 
   .accordion-header {
@@ -411,36 +407,36 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.25rem 0;
+    padding: 1.25rem 0.5rem;
     background: none;
     border: none;
     cursor: pointer;
     font-family: inherit;
     text-align: left;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
+    color: var(--secondary);
   }
 
   .accordion-header:hover {
-    color: var(--tertiary);
+    background: rgba(101, 45, 144, 0.03);
+    padding-left: 0.75rem;
   }
 
   .accordion-title {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 600;
     color: var(--secondary);
-    padding-right: 1rem;
-  }
-
-  .accordion-header:hover .accordion-title {
-    color: var(--tertiary);
+    flex: 1;
   }
 
   .accordion-icon {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 300;
-    color: #999;
+    color: var(--tertiary);
     transition: transform 0.3s ease;
     flex-shrink: 0;
+    width: 24px;
+    text-align: center;
   }
 
   .accordion-item.open .accordion-icon {
@@ -450,21 +446,22 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
   .accordion-body {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 0.5rem;
   }
 
   .accordion-item.open .accordion-body {
-    max-height: 200px;
+    max-height: 300px;
     padding-bottom: 1.25rem;
   }
 
   .accordion-body p {
     color: #555;
-    line-height: 1.8;
-    font-size: 1rem;
+    line-height: 1.9;
+    font-size: 0.95rem;
     margin: 0;
   }
-  
+
   /* Info Card */
   .info-card {
     background: var(--primary-white);
@@ -477,82 +474,86 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
   }
 
   /* Universities */
-    .universities-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
-    max-width: 900px;
-    margin: 1rem auto 0;
-  }
+.universities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 1rem auto 0;
+}
 
-  .uni-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: var(--primary-white);
-    padding: 1.25rem;
-    border-radius: 12px;
-    border: 2px solid var(--gray-200);
-    text-decoration: none;
-    color: var(--text-dark);
-    transition: all var(--transition);
-    cursor: pointer;
-  }
+.uni-card {
+  position: relative;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  align-items: flex-end;
+  transition: all var(--transition);
+}
 
-  .uni-card:hover {
-    border-color: var(--tertiary);
-    box-shadow: 0 8px 24px rgba(101, 45, 144, 0.12);
-    transform: translateY(-3px);
-  }
+.uni-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(36, 54, 120, 0.2);
+}
 
-  .uni-rank-badge {
-    width: 48px;
-    height: 48px;
-    background: var(--secondary);
-    color: var(--primary-white);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 1.1rem;
-    flex-shrink: 0;
-  }
+.uni-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
 
-  .uni-card:hover .uni-rank-badge {
-    background: var(--tertiary);
-  }
+.uni-card:hover .uni-card-bg {
+  transform: scale(1.08);
+}
 
-  .uni-info {
-    flex: 1;
-    min-width: 0;
-  }
+.uni-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(36, 54, 120, 0.85) 0%, rgba(36, 54, 120, 0.2) 100%);
+  z-index: 1;
+}
 
-  .uni-name {
-    display: block;
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--secondary);
-    margin-bottom: 0.2rem;
-  }
+.uni-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 1.25rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
 
-  .uni-rank-label {
-    font-size: 0.75rem;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+.uni-rank-badge {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-white);
+  color: var(--secondary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
 
-  .uni-arrow {
-    color: #ccc;
-    flex-shrink: 0;
-    transition: all var(--transition);
-  }
-
-  .uni-card:hover .uni-arrow {
-    color: var(--tertiary);
-    transform: translateX(3px);
-  }
+.uni-name {
+  color: var(--primary-white);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.3
+  ;
+}
 
   /* Courses */
   .courses-grid {
@@ -758,3 +759,24 @@ const description = `Comprehensive guide to studying in ${displayName}. Learn ab
     }
   }
 </style>
+
+<script>
+  const accordionList = document.getElementById('accordionList');
+  let currentlyOpen = null;
+
+  accordionList.addEventListener('click', (e) => {
+    const header = e.target.closest('.accordion-header');
+    if (!header) return;
+
+    const item = header.closest('.accordion-item');
+    
+    // Close previously open item
+    if (currentlyOpen && currentlyOpen !== item) {
+      currentlyOpen.classList.remove('open');
+    }
+    
+    // Toggle current item
+    item.classList.toggle('open');
+    currentlyOpen = item.classList.contains('open') ? item : null;
+  });
+</script>
