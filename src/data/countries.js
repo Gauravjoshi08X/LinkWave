@@ -67,7 +67,7 @@ export const countries = {
       'u-k': {
         name: 'United Kingdom',
         flag: '🇬🇧',
-        banner: 'uk.jpeg',
+        banner: '/LinkWave/uk.jpeg',
         capital: 'London',
         currency: 'Pound Sterling (GBP)',
         languages: 'English',
@@ -98,7 +98,7 @@ export const countries = {
         name: 'Canada',
         flag: '🇨🇦',
         capital: 'Ottawa',
-        banner: 'canada.jpeg',
+        banner: '/LinkWave/canada.jpeg',
         currency: 'Canadian Dollar (CAD)',
         languages: 'English, French',
         whyStudy: 'Canada is consistently ranked among the best countries for quality of life and education. Known for welcoming immigration policies, Canada offers clear pathways from study to permanent residency.',
@@ -129,7 +129,7 @@ export const countries = {
         flag: '🇳🇿',
         capital: 'Wellington',
         currency: 'New Zealand Dollar (NZD)',
-        banner: 'nz.jpeg',
+        banner: '/LinkWave/nz.jpeg',
         languages: 'English, Māori',
         whyStudy: 'New Zealand offers a unique blend of world-class education and breathtaking natural beauty. All 8 universities rank in the top 3% globally with innovative teaching methods and a safe environment.',
         benefits: [
@@ -157,7 +157,7 @@ export const countries = {
       'u-s': {
         name: 'United States',
         flag: '🇺🇸',
-        banner: 'us.jpeg',
+        banner: '/LinkWave/us.jpeg',
         capital: 'Washington, D.C.',
         currency: 'US Dollar (USD)',
         languages: 'English',

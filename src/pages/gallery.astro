@@ -2,27 +2,20 @@
 import MainLayout from '../layouts/MainLayout.astro';
 
 const staffImages = [
-  { src: 'staff-1.jpeg'},
-  { src: 'staff-3.jpeg'},
-  { src: 'staff-4.jpeg'},
-  { src: 'staff-5.jpeg'},
-  { src: 'staff-7.jpeg'},
-  { src: 'staff-8.jpeg'},
-  { src: 'staff-9.jpeg'},
-  { src: 'staff-10.jpeg'},
-  { src: 'staff-11.jpeg'},
-  { src: 'staff-12.jpeg'},
-  { src: 'staff-13.jpeg'},
-  { src: 'staff-15.jpeg'},
-  { src: 'staff-16.jpeg'},
-  { src: 'staff-17.jpeg'},
-  { src: 'staff-18.jpeg'},
+  { src: '/LinkWave/staff-10.jpeg'},
+  { src: '/LinkWave/staff-11.jpeg'},
+  { src: '/LinkWave/staff-12.jpeg'},
+  { src: '/LinkWave/staff-13.jpeg'},
+  { src: '/LinkWave/staff-15.jpeg'},
+  { src: '/LinkWave/staff-16.jpeg'},
+  { src: '/LinkWave/staff-17.jpeg'},
+  { src: '/LinkWave/staff-18.jpeg'},
 ];
 
 const officeImages = [
-  { src: 'office-1.jpeg'},
-  { src: 'office-2.jpeg'},
-  { src: 'office-4.jpeg'},
+  { src: '/LinkWave/office-1.jpeg'},
+  { src: '/LinkWave/office-2.jpeg'},
+  { src: '/LinkWave/office-4.jpeg'},
 ];
 ---
 
@@ -82,7 +75,6 @@ const officeImages = [
               <img 
                 src={img.src} 
                 loading="lazy"
-                onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%23e8e8f0%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23888%22 font-family=%22Arial%22>No Image</text></svg>'"
               />
               <div class="gallery-overlay">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
