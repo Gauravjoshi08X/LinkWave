@@ -112,13 +112,15 @@ const { title, description, image } = Astro.props;
     main {
       flex: 1;
     }
-    
+
   </style>
 
   <!-- Preconnect to Strapi API -->
   <link rel="preconnect" href="https://authentic-bracelet-0264bec354.strapiapp.com" />
   
   <!-- Preload Inter font -->
+   <link rel="preload" as="image" href="/banner_230.jpeg" />
+   
   <link 
     rel="preload" 
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" 

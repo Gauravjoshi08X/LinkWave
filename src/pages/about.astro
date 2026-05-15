@@ -7,10 +7,14 @@ import MainLayout from '../layouts/MainLayout.astro';
   description="Discover why Link Wave Global Study is Nepal's trusted partner for international education. Expert counseling, visa processing, and test preparation for Australia, UK, Canada, USA, Japan & more."
 >
   <!-- Hero Section -->
-  <section class="about-hero">
+  <!-- Hero -->
+  <section class="about-hero" style="background-color: #243678;">
     <div class="container">
-      <h1 class="reveal">Why Choose <span class="highlight">Link Wave?</span></h1>
-      <p class="hero-subtitle reveal">Your Trusted Partner for International Education Since Inception</p>
+      <div class="hero-content reveal">
+        <span class="section-label">Why Choose Us</span>
+        <h1>Your dreams deserve <span class="highlight">the right partner</span></h1>
+        <p class="hero-subtitle">We don't just process applications. We guide you through one of the most important decisions of your life — with honesty, experience, and genuine care.</p>
+      </div>
     </div>
   </section>
 
@@ -174,12 +178,10 @@ import MainLayout from '../layouts/MainLayout.astro';
   /* Hero Section */
   .about-hero {
     position: relative;
-    height: 450px;
-    overflow: hidden;
+    padding: 6rem 0;
     color: var(--primary-white);
-    display: flex;
-    align-items: center;
-    text-align: center;
+    overflow: hidden;
+    background-color: var(--secondary); /* Fallback color */
   }
 
   .about-hero::before {
@@ -189,13 +191,14 @@ import MainLayout from '../layouts/MainLayout.astro';
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('banner_230.jpeg');
+    background-image: url('/banner_230.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     filter: blur(2px);
-    transform: scale(1.1); /* Prevents blur edges from showing */
+    transform: scale(1.1);
     z-index: 0;
+    will-change: transform; /* Hardware acceleration */
   }
 
   .about-hero::after {
@@ -205,7 +208,7 @@ import MainLayout from '../layouts/MainLayout.astro';
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 18, 82, 0.655);
+    background: rgba(36, 54, 120, 0.85);
     z-index: 1;
   }
 
@@ -214,25 +217,48 @@ import MainLayout from '../layouts/MainLayout.astro';
     z-index: 2;
   }
 
-  .about-hero h1 {
-    color: var(--primary-white);
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 2;
+  .hero-content {
+    max-width: 650px;
   }
 
-  .hero-subtitle {
-    font-size: 1.2rem;
-    opacity: 0.9;
-    max-width: 600px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
+  .section-label {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+  }
+
+  .hero-content h1 {
+    color: var(--primary-white);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    margin-bottom: 1.25rem;
+    line-height: 1.25;
+    font-weight: 700;
   }
 
   .highlight {
-    color: rgb(221, 204, 21);
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.3);
+    text-underline-offset: 6px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+    max-width: 550px;
+  }
+
+  @media (max-width: 600px) {
+    .hero-stats-row {
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
   }
 
   /* Sections */
