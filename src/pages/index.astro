@@ -402,7 +402,7 @@ const news = await fetchNews();
               <input type="text" name="last" placeholder="Last Name" required />
             </div>
             <input type="tel" name="phone" placeholder="Phone Number" required />
-            <input type="email" name="email" placeholder="Email Address" />
+            <input type="email" name="email" placeholder="Email Address" required/>
             <select name="destination">
               <option value="">Select your Destination</option>
               <option value="Australia">Australia</option>
@@ -462,11 +462,11 @@ const news = await fetchNews();
     const course = rawData.get('course') || '';
     const message = rawData.get('message')?.trim() || '';
 
-    if (!firstName || !phone) {
+    if (!firstName || !phone ||!email) {
       consultationStatus.style.display = 'block';
       consultationStatus.style.background = '#fff3cd';
       consultationStatus.style.color = '#856404';
-      consultationStatus.textContent = 'Please fill in your name and phone number.';
+      consultationStatus.textContent = 'Please fill in your name, phone number and email.';
       return;
     }
 
@@ -475,7 +475,7 @@ const news = await fetchNews();
     const submitBtn = consultationForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
+    submitBtn.textContent = 'Please Wait';
     submitBtn.style.opacity = '0.7';
     submitBtn.style.cursor = 'not-allowed';
 
@@ -515,16 +515,17 @@ const news = await fetchNews();
       consultationStatus.style.background = '#fff3cd';
       consultationStatus.style.color = '#856404';
       consultationStatus.textContent = 'Server error. Please chat with us on WhatsApp instead.';
-    } finally {
-      // Re-enable after 5 seconds
-      setTimeout(() => {
-        isConsultationSubmitting = false;
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-        submitBtn.style.opacity = '1';
-        submitBtn.style.cursor = 'pointer';
-      }, 5000);
     }
+    // finally {
+    //   // Re-enable after 5 seconds
+    //   setTimeout(() => {
+    //     isConsultationSubmitting = false;
+    //     submitBtn.disabled = false;
+    //     submitBtn.textContent = originalText;
+    //     submitBtn.style.opacity = '1';
+    //     submitBtn.style.cursor = 'pointer';
+    //   }, 5000);
+    // }
   });
 </script>
 </MainLayout>
