@@ -8,128 +8,41 @@ const { title, description, image } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <SEOHead 
-    title={title} 
-    description={description} 
-    image={image}
-  />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- Inline critical CSS -->
-  <style is:inline>
-    :root {
-      --primary-white: #ffffff;
-      --secondary: #243678;
-      --tertiary: #652d90;
-      --text-dark: #1a1a2e;
-      --text-light: #f0f0f5;
-      --gray-100: #f7f7fb;
-      --gray-200: #e8e8f0;
-      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
-
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: var(--primary-white);
-      color: var(--text-dark);
-      line-height: 1.6;
-      overflow-x: hidden;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    h1, h2, h3, h4 {
-      color: var(--secondary);
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
-    h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
-    h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
-
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all var(--transition);
-      cursor: pointer;
-      border: 2px solid transparent;
-    }
-
-    .btn-primary {
-      background: var(--secondary);
-      color: var(--primary-white);
-    }
-
-    .btn-primary:hover {
-      background: var(--tertiary);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(101, 45, 144, 0.3);
-    }
-
-    .btn-outline {
-      border-color: var(--secondary);
-      color: var(--secondary);
-    }
-
-    .btn-outline:hover {
-      background: var(--secondary);
-      color: var(--primary-white);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s var(--transition);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    main {
-      flex: 1;
-    }
-
-  </style>
-
-  <!-- Preconnect to Strapi API -->
-  <link rel="preconnect" href="https://authentic-bracelet-0264bec354.strapiapp.com" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
   
-  <!-- Preload Inter font -->
-   <link rel="preload" as="image" href="/LinkWave/home.jpeg" />
-   
-  <link 
-    rel="preload" 
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" 
-    as="style"
-  />
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" 
-    rel="stylesheet"
-  />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={`https://gauravjoshi08x.github.io/LinkWave${Astro.url.pathname}`} />
+  
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:url" content={`https://gauravjoshi08x.github.io/LinkWave${Astro.url.pathname}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Link Wave Global Study" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/LinkWave/favicon.svg" />
+  <link rel="apple-touch-icon" href="/LinkWave/favicon.svg" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="/LinkWave/home.jpeg" />
 </head>
 
 <body>
