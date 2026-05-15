@@ -976,6 +976,14 @@ const news = await fetchNews();
     font-size: 0.8rem;
     line-height: 1.5;
   }
+
+    @media (max-width: 600px) {
+    .destinations-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+  
   /* Services */
   .services-grid {
     display: grid;
