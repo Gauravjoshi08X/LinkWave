@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://YOUR_USERNAME.github.io',
+  site: 'https://gauravjoshi08x.github.io',
   base: '/LinkWave/',
   output: 'static'
 });
