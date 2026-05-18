@@ -1,0 +1,261 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const destinations = [
+  {
+    name: 'Australia',
+    slug: 'australia',
+    image: '/LinkWave/aus.jpeg',
+    description: '7 of world\'s top 100 universities with multicultural environment and post-study work rights up to 4 years.'
+  },
+  {
+    name: 'United Kingdom',
+    slug: 'u-k',
+    image: '/LinkWave/uk.jpeg',
+    description: 'Centuries of academic excellence with shorter course durations and 2-year post-study work visa through the Graduate Route.'
+  },
+  {
+    name: 'Canada',
+    slug: 'canada',
+    image: '/LinkWave/canada.jpeg',
+    description: 'Clear pathway to Permanent Residency with affordable tuition and post-study work permits up to 3 years.'
+  },
+  {
+    name: 'United States',
+    slug: 'u-s',
+    image: '/LinkWave/us.jpeg',
+    description: 'World\'s largest number of top-ranked universities with flexible education system and OPT opportunities up to 3 years for STEM graduates.'
+  },
+  {
+    name: 'Japan',
+    slug: 'japan',
+    image: 'https://ychef.files.bbci.co.uk/1280x640/p08bkzzz.jpeg',
+    description: 'Blends ancient tradition with cutting-edge technology. MEXT scholarships, world-leading robotics and engineering programs, and unique cultural immersion experience.'
+  },
+  {
+    name: 'New Zealand',
+    slug: 'new-zealand',
+    image: '/LinkWave/nz.jpeg',
+    description: 'All 8 universities in global top 3% with safe environment, work rights during study, and pathway to residency.'
+  },
+  {
+    name: 'European Union',
+    slug: 'eu',
+    image: '/LinkWave/eu.png',
+    description: '27 countries, one visa. Free or low-cost tuition at top-ranked universities with English-taught programs and rich cultural diversity across the Schengen area.'
+  },
+  {
+  name: 'South Korea',
+  slug: 'south-korea',
+  image: '/LinkWave/korea.jpeg',
+  description: 'Global leader in technology and innovation with world-class universities. KGSP scholarships available for international students with affordable tuition and gateway to Asian markets.'
+  },
+];
+---
+
+<MainLayout
+  title="Study Abroad | Explore 5 Top Destinations | Link Wave Global Study"
+  description="Explore study opportunities in USA, UK, Canada, Australia, and New Zealand. Expert guidance for international education from Link Wave Global Study, Kathmandu."
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="reveal">Study Abroad Destinations</h1>
+      <p class="hero-subtitle reveal">Explore top study destinations with expert guidance from Link Wave Global Study. Find your perfect country, university, and course.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="destinations-grid">
+        {destinations.map(dest => (
+          <a href={`/LinkWave/study-in-${dest.slug}`} class="dest-card reveal">
+            <div class="dest-card-bg" style={`background-image: url('${dest.image}')`}></div>
+            <div class="dest-card-overlay"></div>
+            <div class="dest-card-content">
+              <h3>{dest.name}</h3>
+              <p>{dest.description}</p>
+              <span class="dest-link">Learn More →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-dark">
+    <div class="container reveal">
+      <h2>Not Sure Where to Start?</h2>
+      <p>Our expert counselors will help you find the perfect destination based on your goals, budget, and preferences.</p>
+      <div class="cta-buttons">
+        <a href="/LinkWave/contact-us" class="btn btn-primary" style="background: var(--primary-white); color: var(--secondary);">Get Free Consultation</a>
+        <a href="tel:+9779851410481" class="btn btn-outline-white">+977 9851410481</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .page-hero {
+    background: var(--secondary);
+    color: var(--primary-white);
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    color: var(--primary-white);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-subtitle {
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .section {
+    padding: 5rem 0;
+  }
+
+  .destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .dest-card {
+    position: relative;
+    height: 350px;
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--primary-white);
+    display: flex;
+    align-items: flex-end;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .dest-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(36, 54, 120, 0.25);
+  }
+
+  .dest-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+  }
+
+  .dest-card:hover .dest-card-bg {
+    transform: scale(1.08);
+  }
+
+  .dest-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to top,
+      rgba(36, 54, 120, 0.9) 0%,
+      rgba(36, 54, 120, 0.5) 40%,
+      rgba(36, 54, 120, 0.2) 100%
+    );
+    z-index: 1;
+  }
+
+  .dest-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    width: 100%;
+  }
+
+  .dest-card-content h3 {
+    color: var(--primary-white);
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+
+  .dest-card-content p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .dest-link {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+
+  .dest-card:hover .dest-link {
+    color: var(--primary-white);
+  }
+
+  .cta-dark {
+    background: var(--secondary);
+    color: var(--primary-white);
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .cta-dark h2 {
+    color: var(--primary-white);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-dark p {
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-outline-white {
+    border: 2px solid var(--primary-white);
+    color: var(--primary-white);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all var(--transition);
+  }
+
+  .btn-outline-white:hover {
+    background: var(--primary-white);
+    color: var(--secondary);
+  }
+
+  @media (max-width: 768px) {
+    .destinations-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .dest-card {
+      height: 280px;
+    }
+  }
+</style>
