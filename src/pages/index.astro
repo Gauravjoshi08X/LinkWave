@@ -175,10 +175,22 @@ const news = await fetchNews();
           <p>The Duolingo English Test (DET) is a fast, affordable, and convenient online English proficiency exam, designed for students and professionals who need to demonstrate their language skills for study, work, or migration.</p>
           <a href="/LinkWave/test-preparation/duolingo" class="read-more">Read More →</a>
         </div>
+      
+      <!-- Japanese -->
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="18" fill="currentColor">あ</text>
+          </svg>
+        </div>
+        <h3>Japanese Language Preparation</h3>
+        <p>Structured courses for JLPT (N5 to N2), JFT, and JLCT examinations. Designed for students planning to study or work in Japan. Covers reading, writing, listening, and conversational skills.</p>
+        <a href="/LinkWave/test-preparation/japaneselang" class="read-more">Read More →</a>
+      </div>
       </div>
     </div>
-  </section>
-
+    </section>
+    
   <!-- Additional Services -->
   <section class="section">
     <div class="container">
@@ -434,6 +446,11 @@ const news = await fetchNews();
               <option value="PTE Exams Preparation">PTE Exams Preparation</option>
               <option value="Duolingo">Duolingo</option>
               <option value="Japanese Language Study Guide">Japanese Language Study Guide</option>
+            </select>
+            <select name="location">
+              <option value="">Preferred Location</option>
+              <option value="Jadibuti">Jadibuti</option>
+              <option value="Putalisadak">Putalisadak</option>
             </select>
             <textarea name="message" placeholder="Your Message" rows="3"></textarea>
             <button type="submit" class="btn btn-primary btn-full">Submit</button>
@@ -1020,10 +1037,6 @@ const news = await fetchNews();
     transition: all var(--transition);
   }
 
-  .service-card:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
-  }
 
   .service-icon {
     color: var(--tertiary);
