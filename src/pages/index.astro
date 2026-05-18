@@ -44,7 +44,7 @@ const news = await fetchNews();
             <span class="stat-label">Countries</span>
           </div>
           <div class="stat">
-            <span class="stat-number">500+</span>
+            <span class="stat-number">300+</span>
             <span class="stat-label">Universities</span>
           </div>
           <div class="stat">
@@ -66,14 +66,14 @@ const news = await fetchNews();
         <h2>Find the Right Destination</h2>
         <p>Expert guidance for top study destinations with over 500 leading institutions worldwide</p>
       </div>
-
+      
       <div class="destinations-grid reveal">
-        <a href="/LinkWave/study-in-u-s" class="dest-card">
-          <div class="dest-card-bg" style="background-image: url('/LinkWave/us.jpeg')"></div>
+        <a href="/LinkWave/study-in-australia" class="dest-card">
+          <div class="dest-card-bg" style="background-image: url('/LinkWave/aus.jpeg')"></div>
           <div class="dest-card-overlay"></div>
           <div class="dest-card-content">
-            <h3>United States</h3>
-            <p class="dest-unis">Harvard, MIT, Stanford, Columbia, UC Berkeley</p>
+            <h3>Australia</h3>
+            <p class="dest-unis">Melbourne, Sydney, ANU, UQ, UNSW</p>
           </div>
         </a>
 
@@ -95,21 +95,30 @@ const news = await fetchNews();
           </div>
         </a>
 
-        <a href="/LinkWave/study-in-australia" class="dest-card">
-          <div class="dest-card-bg" style="background-image: url('/LinkWave/aus.jpeg')"></div>
+        <a href="/LinkWave/study-in-u-s" class="dest-card">
+          <div class="dest-card-bg" style="background-image: url('/LinkWave/us.jpeg')"></div>
           <div class="dest-card-overlay"></div>
           <div class="dest-card-content">
-            <h3>Australia</h3>
-            <p class="dest-unis">Melbourne, Sydney, ANU, UQ, UNSW</p>
+            <h3>United States</h3>
+            <p class="dest-unis">Harvard, MIT, Stanford, Columbia, UC Berkeley</p>
           </div>
         </a>
 
-        <a href="/LinkWave/study-in-new-zealand" class="dest-card">
-          <div class="dest-card-bg" style="background-image: url('/LinkWave/nz.jpeg')"></div>
+        <a href="/LinkWave/study-in-japan" class="dest-card">
+          <div class="dest-card-bg" style="background-image: url('https://ychef.files.bbci.co.uk/1280x640/p08bkzzz.jpeg')"></div>
           <div class="dest-card-overlay"></div>
           <div class="dest-card-content">
-            <h3>New Zealand</h3>
-            <p class="dest-unis">Auckland, Otago, Victoria, Canterbury, Massey</p>
+            <h3>Japan</h3>
+            <p class="dest-unis">Tokyo, Kyoto, Osaka, Tohoku</p>
+          </div>
+        </a>
+
+        <a href="/LinkWave/study-abroad" class="dest-card">
+          <div class="dest-card-bg" style="background-image: url('https://img.magnific.com/free-vector/flag-icon-collection_1368-2669.jpg?semt=ais_hybrid&w=740&q=80')"></div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-content">
+            <h3>More Destination</h3>
+            <p class="dest-unis">Explore other amazing destinations</p>
           </div>
         </a>
       </div>
@@ -187,15 +196,19 @@ const news = await fetchNews();
             <span class="service-divider"></span>
           </div>
           <div class="service-row">
+            <span class="service-name">University Selection</span>
+            <span class="service-divider"></span>
+          </div>
+          <div class="service-row">
+            <span class="service-name">Interview Preparation</span>
+            <span class="service-divider"></span>
+          </div>
+          <div class="service-row">
             <span class="service-name">Accommodation Assistance</span>
             <span class="service-divider"></span>
           </div>
           <div class="service-row">
             <span class="service-name">Part-Time Job Guidance</span>
-            <span class="service-divider"></span>
-          </div>
-          <div class="service-row">
-            <span class="service-name">University Interview Preparation</span>
             <span class="service-divider"></span>
           </div>
           <div class="service-row">
@@ -349,9 +362,7 @@ const news = await fetchNews();
   </section>
 
   <!-- Map / Location CTA -->
-  <a href="https://maps.google.com/?q=Link+Wave+Global+Study+Putalisadak+Kathmandu+Nepal" 
-     target="_blank" 
-     rel="noopener noreferrer"
+  <div
      class="map-cta reveal">
     <div class="container">
       <div class="map-cta-content">
@@ -363,12 +374,18 @@ const news = await fetchNews();
         </div>
         <div class="map-text">
           <h2>Visit Our Office</h2>
-          <p>Putalisadak, Kathmandu, Nepal (Head Office)</p>
-          <span class="map-link">Open in Google Maps →</span>
+          
+      <a href="https://maps.google.com/?q=Link+Wave+Global+Study+Putalisadak+Kathmandu+Nepal" 
+        target="_blank" 
+        rel="noopener noreferrer" style="text-decoration: none;"><p>Putalisadak, Kathmandu, Nepal (Head Office)</p></a>
+          
+      <a href="https://maps.google.com/?q=Link+Wave+Global+Study+Jadibuti+Kathmandu+Nepal" 
+        target="_blank" 
+        rel="noopener noreferrer" style="text-decoration: none;"><p>Jadibuti, Kathmandu, Nepal (Learning Center)</p></a>
         </div>
       </div>
     </div>
-  </a>
+  </div>
   <!-- Free Consultation -->
   <section class="section consultation-section">
     <div class="container">
@@ -412,7 +429,7 @@ const news = await fetchNews();
               <option value="New Zealand">New Zealand</option>
             </select>
             <select name="course">
-              <option value="">Preferred Course</option>
+              <option value="">Preferred Test</option>
               <option value="IELTS Exams Preparation">IELTS Exams Preparation</option>
               <option value="PTE Exams Preparation">PTE Exams Preparation</option>
               <option value="Duolingo">Duolingo</option>

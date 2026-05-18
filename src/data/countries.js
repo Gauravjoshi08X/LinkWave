@@ -26,6 +26,21 @@ function getUniImage(name) {
     'Victoria University of Wellington': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCwfn9NMRpio52mkkgCvlcxsYAhTjvO9WwiA&s',
     'University of Canterbury': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCKzZjKcVMrR_WE3LJVgDFo2WTIJtqx77UKg&s',
     'Massey University': 'https://images.shiksha.com/mediadata/images/1535363251phpAsBq5s.png',
+    'Seoul National University': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHLH95ar8JcmWCv6IO-X6Tyw1Hx5E1TSXHA&s',
+    'KAIST': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpxI1bnnf2aHnlD2yzzK0EX5QcamKWevsKNw&s',
+    'Yonsei University': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnYzuJagVjVN3ig7lXabqZqB31d_LXDUKaAA&s',
+    'Korea University': 'https://mcdonnell.washu.edu/app/uploads/2025/05/Korea-U-1024x416.png',
+    'POSTECH': 'https://www.timeshighereducation.com/student/sites/default/files/postech_new_building.jpg',
+    'University of Tokyo': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMT3XLpln9rQfhSSpV2x8TSrXWJZOLJl0eGg&s',
+    'Kyoto University': 'https://framerusercontent.com/images/X3TjjjgcxT6HWEp2PTd7UKaDnJk.jpg',
+    'Tokyo Institute of Technology': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv6mLwvaM5Ww-JQ8syhhtyM96XR0kYXcJ-6w&s',
+    'Osaka University': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToolkYsaXSyjx6ZZ7Mpz3JdPQMBlqGEEJtfQ&s',
+    'Tohoku University': 'https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,w_1200,h_630,dpr_1/https://assets.app.engoo.com/organizations/5d2656f1-9162-461d-88c7-b2505623d8cb/images/5kmc2Zd8qYWTbYp3ntfzl9.jpeg',
+    'ETH Zurich': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTV0a68nKz1SlaUPyQ8wgE51vJGkegewVQqg&s',
+    'Technical University of Munich': 'https://images.shiksha.com/mediadata/images/1533559592phpsYF8Oy.jpeg',
+    'Sorbonne University': 'https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/sorbonne.jpg?itok=WaN5sE5r',
+    'University of Amsterdam': 'https://images.shiksha.com/mediadata/images/1534247890phpdtOeb7_g.png',
+    'KU Leuven': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpaDNxJ-wWJgu6uU6A2JzOqmGOeh_W7YkZ1Q&s',
   };
   return images[name] || null;
 }
@@ -34,6 +49,97 @@ export const countries = {
   international: {
     title: 'International',
     countries: {
+        'eu': {
+        name: 'European Union',
+        flag: '🇪🇺',
+        banner: 'https://www.cep.eu/fileadmin/user_upload/cep.eu/Bilder/cepAnalysen_Studien/EU-Vertraege_u._Institutionen/shutterstock_184988687.jpg',
+        capital: 'Brussels (de facto)',
+        currency: 'Euro (EUR)',
+        languages: '24 official languages',
+        whyStudy: 'The European Union offers unmatched diversity in education. Study in world-class universities across 27 countries, from Germany\'s engineering excellence to France\'s business schools. Many EU countries offer free or low-cost tuition with English-taught programs widely available.',
+        benefits: [
+          'Free or very low tuition in many EU countries',
+          'Access to 27 countries with one student visa',
+          'English-taught programs in top universities',
+          'Post-study work visas across the Schengen area',
+          'Rich cultural and historical experience',
+          'Strong economy with global job opportunities'
+        ],
+        educationSystem: 'EU higher education follows the Bologna Process, standardizing degrees across 48 countries. Programs include Bachelor\'s (3-4 years), Master\'s (1-2 years), and PhD. Students can transfer credits between EU universities.',
+        topUniversities: [
+          { name: 'ETH Zurich', rank: 7, url: 'https://www.ethz.ch', image: getUniImage('ETH Zurich') },
+          { name: 'Technical University of Munich', rank: 28, url: 'https://www.tum.de', image: getUniImage('Technical University of Munich') },
+          { name: 'Sorbonne University', rank: 42, url: 'https://www.sorbonne-universite.fr', image: getUniImage('Sorbonne University') },
+          { name: 'University of Amsterdam', rank: 55, url: 'https://www.uva.nl', image: getUniImage('University of Amsterdam') },
+          { name: 'KU Leuven', rank: 63, url: 'https://www.kuleuven.be', image: getUniImage('KU Leuven') }
+        ],
+        popularCourses: ['Engineering', 'Business & Management', 'Medicine', 'Environmental Science', 'International Relations'],
+        visaRequirements: 'Schengen Student Visa requires university admission letter, proof of funds, health insurance, and accommodation proof. Processing takes 4-8 weeks. Visa allows travel across 27 Schengen countries.',
+        costOfLiving: 'EUR 8,000 - 15,000 per year (varies by country)',
+        tuitionFees: 'EUR 0 - 15,000 per year (varies by country)',
+        process: ['Choose country and university', 'Prepare application with required documents', 'Receive admission confirmation', 'Apply for Schengen student visa', 'Arrange accommodation and health insurance', 'Register with local authorities upon arrival']
+      },
+      'south-korea': {
+      name: 'South Korea',
+      flag: '🇰🇷',
+      banner: '/LinkWave/korea.jpeg',
+      capital: 'Seoul',
+      currency: 'South Korean Won (KRW)',
+      languages: 'Korean',
+      whyStudy: 'South Korea is a global leader in technology, innovation, and pop culture. With world-class universities and generous government scholarships, it has become one of Asia\'s most popular study destinations for international students.',
+      benefits: [
+        'World-class education in technology and engineering',
+        'Korean Government Scholarship Program (KGSP) for international students',
+        'Affordable tuition compared to Western countries',
+        'Part-time work allowed for international students',
+        'Safe, modern cities with excellent public transport',
+        'Gateway to Asian job markets'
+      ],
+      educationSystem: 'South Korea follows a 4-year undergraduate system with rigorous academic standards. Universities are either national (public) or private, with many offering English-taught programs for international students.',
+      topUniversities: [
+        { name: 'Seoul National University', rank: 31, url: 'https://www.snu.ac.kr', image: getUniImage('Seoul National University') },
+        { name: 'KAIST', rank: 46, url: 'https://www.kaist.ac.kr', image: getUniImage('KAIST') },
+        { name: 'Yonsei University', rank: 76, url: 'https://www.yonsei.ac.kr', image: getUniImage('Yonsei University') },
+        { name: 'Korea University', rank: 79, url: 'https://www.korea.ac.kr', image: getUniImage('Korea University') },
+        { name: 'POSTECH', rank: 98, url: 'https://www.postech.ac.kr', image: getUniImage('POSTECH') }
+      ],
+      popularCourses: ['Engineering & Technology', 'Computer Science', 'Business & Economics', 'Korean Language & Culture', 'Media & Entertainment'],
+      visaRequirements: 'D-2 Student Visa requires Certificate of Admission, proof of funds (KRW 10,000,000+), academic transcripts, and passport. Visa processing takes 2-4 weeks.',
+      costOfLiving: 'KRW 8,000,000 - 12,000,000 per year',
+      tuitionFees: 'KRW 4,000,000 - 10,000,000 per semester',
+      process: ['Choose university and program', 'Prepare application documents', 'Receive admission letter', 'Apply for D-2 visa at Korean Embassy', 'Arrange accommodation', 'Attend orientation program']
+    },
+
+    'japan': {
+      name: 'Japan',
+      flag: '🇯🇵',
+      banner: 'https://ychef.files.bbci.co.uk/1280x640/p08bkzzz.jpeg',
+      capital: 'Tokyo',
+      currency: 'Japanese Yen (JPY)',
+      languages: 'Japanese',
+      whyStudy: 'Japan blends centuries-old tradition with cutting-edge technology. Known for excellence in robotics, engineering, and design, Japan offers high-quality education with a unique cultural experience. MEXT scholarships attract top international talent.',
+      benefits: [
+        'MEXT and JASSO scholarships for international students',
+        'World leader in robotics, AI, and engineering',
+        'Post-study work opportunities in a strong economy',
+        'Safe, clean, and well-organized cities',
+        'Unique cultural immersion experience',
+        'Excellent public transportation and healthcare'
+      ],
+      educationSystem: 'Japanese higher education includes universities (4-year), junior colleges, and specialized vocational schools. Programs begin in April or October. Many universities now offer English-medium programs.',
+      topUniversities: [
+        { name: 'University of Tokyo', rank: 28, url: 'https://www.u-tokyo.ac.jp', image: getUniImage('University of Tokyo') },
+        { name: 'Kyoto University', rank: 55, url: 'https://www.kyoto-u.ac.jp', image: getUniImage('Kyoto University') },
+        { name: 'Tokyo Institute of Technology', rank: 84, url: 'https://www.titech.ac.jp', image: getUniImage('Tokyo Institute of Technology') },
+        { name: 'Osaka University', rank: 86, url: 'https://www.osaka-u.ac.jp', image: getUniImage('Osaka University') },
+        { name: 'Tohoku University', rank: 107, url: 'https://www.tohoku.ac.jp', image: getUniImage('Tohoku University') }
+      ],
+      popularCourses: ['Engineering & Robotics', 'Information Technology', 'Business & Management', 'Japanese Language', 'Animation & Design'],
+      visaRequirements: 'Student Visa requires Certificate of Eligibility (COE), admission letter, proof of funds (JPY 1,500,000/year), passport, and visa application form. The institution usually applies for COE on your behalf.',
+      costOfLiving: 'JPY 1,200,000 - 1,800,000 per year',
+      tuitionFees: 'JPY 535,800 - 1,200,000 per year (public universities)',
+      process: ['Choose institution and program', 'Submit application with documents', 'Institution applies for COE', 'Receive COE from immigration', 'Apply for visa at Japanese Embassy', 'Arrange accommodation and residency registration']
+    },
       'australia': {
         name: 'Australia',
         flag: '🇦🇺',
