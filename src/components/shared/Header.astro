@@ -31,7 +31,11 @@ const currentPath = Astro.url.pathname;
                 <li><a href="/LinkWave/study-in-canada">Canada</a></li>
                 <li><a href="/LinkWave/study-in-u-s">United States</a></li>
                 <li><a href="/LinkWave/study-in-japan">Japan</a></li>
-                <li style="background-color: rgb(184, 184, 184);"><a href="/LinkWave/study-abroad">More Destinations</a></li>
+                <div class="mega-column more-destinations">
+                  <a href="/LinkWave/study-abroad" class="more-dest-btn">
+                    More Destinations →
+                  </a>
+                </div>
               </ul>
             </div>
           </div>
@@ -46,6 +50,7 @@ const currentPath = Astro.url.pathname;
           <ul>
             <li><a href="/LinkWave/test-preparation/ielts">IELTS Preparation</a></li>
             <li><a href="/LinkWave/test-preparation/pte">PTE Preparation</a></li>
+            <li><a href="/LinkWave/test-preparation/japaneselang">Japanese Class</a></li>
             <li><a href="/LinkWave/test-preparation/duolingo">Duolingo Test</a></li>
           </ul>
         </div>
@@ -159,6 +164,31 @@ const currentPath = Astro.url.pathname;
     pointer-events: none;
   }
 
+    .more-destinations {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding-top: 0.75rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .more-dest-btn {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: var(--secondary);
+    color: var(--primary-white) !important;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all var(--transition);
+  }
+
+  .more-dest-btn:hover {
+    background: var(--primary-white);
+    padding-left: 1.8rem !important;
+    color: var(--secondary) !important;
+  }
+
   @media (min-width: 769px) {
     .dropdown:hover .dropdown-menu {
       opacity: 1;
@@ -172,7 +202,7 @@ const currentPath = Astro.url.pathname;
   }
 
   .mega-menu {
-    width: 650px;
+    width: 500px;
   }
 
   .mega-menu-grid {

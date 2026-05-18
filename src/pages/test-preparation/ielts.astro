@@ -87,7 +87,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
     </div>
   </section>
 
-  <!-- Band Scores -->
+    <!-- Band Scores -->
   <section class="section">
     <div class="container">
       <h2 class="section-title reveal">IELTS Band Scores</h2>
@@ -99,25 +99,27 @@ import MainLayout from '../../layouts/MainLayout.astro';
       <div class="score-table-wrapper reveal">
         <table class="score-table">
           <thead>
-            <tr><th>Band Score</th><th>Listening (out of 40)</th></tr>
+            <tr><th>Band Score</th><th>Listening (out of 40)</th><th>CEFR Level</th></tr>
           </thead>
           <tbody>
-            <tr><td><span class="band">5</span></td><td>16</td></tr>
-            <tr><td><span class="band">6</span></td><td>23</td></tr>
-            <tr><td><span class="band">7</span></td><td>30</td></tr>
-            <tr><td><span class="band">8</span></td><td>35</td></tr>
+            <tr><td><span class="band">9</span></td><td>39-40</td><td>C2</td></tr>
+            <tr><td><span class="band">8</span></td><td>35-38</td><td>C1</td></tr>
+            <tr><td><span class="band">7</span></td><td>30-34</td><td>B2</td></tr>
+            <tr><td><span class="band">6</span></td><td>23-29</td><td>B2</td></tr>
+            <tr><td><span class="band">5</span></td><td>16-22</td><td>B1</td></tr>
+            <tr><td><span class="band">4</span></td><td>10-15</td><td>A2</td></tr>
           </tbody>
         </table>
       </div>
 
       <h3 class="reveal" style="text-align:center; margin: 3rem 0 1.5rem;">Band Score Descriptions</h3>
       <div class="bands-grid reveal">
-        <div class="band-card"><span class="band-num">9</span><strong>Expert</strong><p>Fully operational command of the language</p></div>
-        <div class="band-card"><span class="band-num">8</span><strong>Very Good</strong><p>Fully operational command with occasional inaccuracies</p></div>
-        <div class="band-card"><span class="band-num">7</span><strong>Good</strong><p>Operational command with occasional inaccuracies</p></div>
-        <div class="band-card"><span class="band-num">6</span><strong>Competent</strong><p>Effective command despite some inaccuracies</p></div>
-        <div class="band-card"><span class="band-num">5</span><strong>Modest</strong><p>Partial command, copes with overall meaning</p></div>
-        <div class="band-card"><span class="band-num">4</span><strong>Limited</strong><p>Basic competence limited to familiar situations</p></div>
+        <div class="band-card"><span class="band-num">9</span><strong>Expert</strong><span class="cefr-tag">C2</span><p>Fully operational command of the language</p></div>
+        <div class="band-card"><span class="band-num">8</span><strong>Very Good</strong><span class="cefr-tag">C1</span><p>Fully operational command with occasional inaccuracies</p></div>
+        <div class="band-card"><span class="band-num">7</span><strong>Good</strong><span class="cefr-tag">B2</span><p>Operational command with occasional inaccuracies</p></div>
+        <div class="band-card"><span class="band-num">6</span><strong>Competent</strong><span class="cefr-tag">B2</span><p>Effective command despite some inaccuracies</p></div>
+        <div class="band-card"><span class="band-num">5</span><strong>Modest</strong><span class="cefr-tag">B1</span><p>Partial command, copes with overall meaning</p></div>
+        <div class="band-card"><span class="band-num">4</span><strong>Limited</strong><span class="cefr-tag">A2</span><p>Basic competence limited to familiar situations</p></div>
       </div>
 
       <div class="calculation-box reveal">
@@ -130,7 +132,6 @@ import MainLayout from '../../layouts/MainLayout.astro';
       </div>
     </div>
   </section>
-
 </MainLayout>
 
 <style>
@@ -236,11 +237,6 @@ import MainLayout from '../../layouts/MainLayout.astro';
     text-align: center;
     transition: all var(--transition);
   }
-  .component-card:hover {
-    border-color: var(--tertiary);
-    box-shadow: 0 4px 16px rgba(101,45,144,0.08);
-    transform: translateY(-2px);
-  }
   .comp-icon { color: var(--tertiary); margin-bottom: 1rem; }
   .component-card h3 { margin-bottom: 0.75rem; font-size: 1.2rem; }
   .component-card p { color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem; }
@@ -260,7 +256,17 @@ import MainLayout from '../../layouts/MainLayout.astro';
   .score-table th, .score-table td { padding: 0.85rem 1rem; text-align: center; border-bottom: 1px solid var(--gray-200); }
   .score-table th { background: var(--secondary); color: white; font-weight: 600; }
   .band { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--tertiary); color: white; border-radius: 50%; font-weight: 700; font-size: 0.9rem; }
-
+  .cefr-tag {
+    display: inline-block;
+    background: var(--tertiary);
+    color: white;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
   .bands-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
