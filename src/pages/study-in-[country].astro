@@ -89,6 +89,15 @@ function getBenefitDescription(benefit, country) {
               <span class="fact-value">{countryData.languages}</span>
             </div>
           </div>
+          
+          <a href={countryData.govLink} target="_blank" rel="noopener noreferrer" class="btn-gov">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          {countryData.govLabel}
+        </a>
         </div>
       </div>
     </div>
@@ -236,6 +245,27 @@ function getBenefitDescription(benefit, country) {
     height: 100%;
     object-fit: cover;
     object-position: center;
+  }  .btn-gov {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    color: var(--primary-white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-top: 30px;
+    transition: all var(--transition);
+    backdrop-filter: blur(5px);
+  }
+
+  .btn-gov:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
   }
 
   .hero-overlay {
