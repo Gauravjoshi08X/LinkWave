@@ -75,8 +75,8 @@ function getBenefitDescription(benefit, country) {
           <div class="quick-facts reveal">
             <div class="fact">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span class="fact-label">Capital</span>
-              <span class="fact-value">{countryData.capital}</span>
+              <span class="fact-label eu-capital">Capital</span>
+              <span class="fact-value eu-capital">{countryData.capital}</span>
             </div>
             <div class="fact">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="6" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
@@ -125,7 +125,52 @@ function getBenefitDescription(benefit, country) {
       </div>
     </div>
   </section>
-
+  {country === 'eu' && (
+    <section class="section bg-light">
+      <div class="container">
+        <h2 class="eu-heading reveal">Popular European Destinations</h2>
+        <p class="eu-subtitle reveal">Explore top countries within the European Union for international students.</p>
+        
+        <div class="eu-list reveal">
+          <div class="eu-row">
+            <div class="eu-marker"></div>
+            <div class="eu-text">
+              <h3>Ireland</h3>
+              <p>Ireland is a leading destination for international students, known for its high-quality education, welcoming culture, strong career opportunities, and vibrant student life. With a safe environment, rich history, and growing global reputation, Ireland offers an excellent place to live, learn, and build a future.</p>
+            </div>
+          </div>
+          <div class="eu-row">
+            <div class="eu-marker"></div>
+            <div class="eu-text">
+              <h3>Finland</h3>
+              <p>Finland is renowned for its exceptional education system, consistently ranking among the best in the world. Known for its high academic standards, innovative teaching methods, and cutting-edge research, Finland is an ideal destination for international students seeking a high-quality education. With top universities such as the University of Helsinki, Aalto University, and University of Turku, Finland offers globally recognized degrees that are highly valued by employers worldwide. Finnish institutions focus on providing students with both theoretical knowledge and practical experience, equipping them with the skills needed to excel in a competitive global job market.</p>
+            </div>
+          </div>
+          <div class="eu-row">
+            <div class="eu-marker"></div>
+            <div class="eu-text">
+              <h3>Denmark</h3>
+              <p>Denmark is a standout choice for students seeking a high-quality education in a dynamic, innovative, and student-centered environment. Known for its progressive approach to learning, world-class universities, and cutting-edge research opportunities, Denmark offers a compelling combination of academic excellence and a high standard of living. Universities like the University of Copenhagen, Aarhus University, and Technical University of Denmark (DTU) are renowned for their strong emphasis on research, sustainability, and technology-driven education. Denmark stands out as an ideal destination for those looking to pursue a variety of fields, from engineering to design, healthcare, and social sciences.</p>
+            </div>
+          </div>
+          <div class="eu-row">
+            <div class="eu-marker"></div>
+            <div class="eu-text">
+              <h3>Spain</h3>
+              <p>Spain is an interesting and UNESCO-rich country, with plenty of opportunities to learn, advance, and socialize. Its higher education sector comprises 89 Spanish universities, out of which 50 are public, and 39 are private universities, which includes some of the best business schools. </p>
+            </div>
+          </div>
+          <div class="eu-row">
+            <div class="eu-marker"></div>
+            <div class="eu-text">
+              <h3>Malta</h3>
+              <p>Malta, a beautiful island nation in the heart of the Mediterranean, is quickly emerging as a dynamic hub for international education. Known for its rich history, warm climate, and English-speaking environment, Malta offers students a unique blend of European education and island lifestyle. Institutions like the University of Malta, American University of Malta, and several private colleges provide a wide range of programs in fields such as business, IT, tourism, and health sciences. With English as one of the official languages, students can study comfortably without the language barrier common in many other European countries.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
   <!-- Education System -->
   <section class="section bg-light">
     <div class="container">
@@ -774,6 +819,14 @@ function getBenefitDescription(benefit, country) {
       font-size: 2rem;
     }
   }
+
+  .eu-heading { text-align: center; margin-bottom: 0.75rem; }
+  .eu-subtitle { text-align: center; max-width: 550px; margin: 0 auto 2.5rem; color: #666; line-height: 1.7; }
+  .eu-list { max-width: 900px; margin: 0 auto; }
+  .eu-row { display: flex; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 1px solid var(--gray-200); align-items: flex-start; }
+  .eu-row:first-child { border-top: 1px solid var(--gray-200); }
+  .eu-text h3 { font-size: 1.05rem; color: var(--secondary); margin-bottom: 0.25rem; }
+  .eu-text p { color: #555; line-height: 1.7; margin: 0; }
 </style>
 
 <script>

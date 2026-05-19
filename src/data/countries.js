@@ -50,15 +50,15 @@ export const countries = {
     title: 'International',
     countries: {
         'eu': {
-        name: 'European Union',
+        name: 'European Countries',
         flag: '🇪🇺',
         govLink: 'https://education.ec.europa.eu',
         govLabel: 'European Education Area',
-        banner: 'https://www.cep.eu/fileadmin/user_upload/cep.eu/Bilder/cepAnalysen_Studien/EU-Vertraege_u._Institutionen/shutterstock_184988687.jpg',
+        banner: 'https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3NodXR0ZXJzdG9jay0yNTExNjA4NTE3LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6ODI4fX19',
         capital: 'Brussels (de facto)',
         currency: 'Euro (EUR)',
-        languages: '24 official languages',
-        whyStudy: 'The European Union offers unmatched diversity in education. Study in world-class universities across 27 countries, from Germany\'s engineering excellence to France\'s business schools. Many EU countries offer free or low-cost tuition with English-taught programs widely available.',
+        languages: 'Germany',
+        whyStudy: 'Europe offers a rich and rewarding academic experience for students looking to combine top-tier education with cultural exploration. Countries like Germany, France, the Netherlands, Finland, Denmark, Ireland, and Malta provide a wide range of English-taught programs, making the continent more accessible than ever to international learners.',
         benefits: [
           'Free or very low tuition in many EU countries',
           'Access to 27 countries with one student visa',
