@@ -29,7 +29,7 @@ const news = await fetchNews();
       ) : (
         <div class="news-grid">
           {news.map((item) => (
-            <a href={`/LinkWave/news/${item.documentId}`} class="news-card reveal">
+            <a href={`news/${item.documentId}`} class="news-card reveal">
               <div class="news-card-image">
                 {item.bannerUrl ? (
                   <img src={item.bannerUrl} alt={item.bannerAlt} loading="lazy" />

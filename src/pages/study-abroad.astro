@@ -5,25 +5,25 @@ const destinations = [
   {
     name: 'Australia',
     slug: 'australia',
-    image: '/LinkWave/aus.jpeg',
+    image: 'aus.jpeg',
     description: '7 of world\'s top 100 universities with multicultural environment and post-study work rights up to 4 years.'
   },
   {
     name: 'United Kingdom',
     slug: 'u-k',
-    image: '/LinkWave/uk.jpeg',
+    image: 'uk.jpeg',
     description: 'Centuries of academic excellence with shorter course durations and 2-year post-study work visa through the Graduate Route.'
   },
   {
     name: 'Canada',
     slug: 'canada',
-    image: '/LinkWave/canada.jpeg',
+    image: 'canada.jpeg',
     description: 'Clear pathway to Permanent Residency with affordable tuition and post-study work permits up to 3 years.'
   },
   {
     name: 'United States',
     slug: 'u-s',
-    image: '/LinkWave/us.jpeg',
+    image: 'us.jpeg',
     description: 'World\'s largest number of top-ranked universities with flexible education system and OPT opportunities up to 3 years for STEM graduates.'
   },
   {
@@ -35,19 +35,19 @@ const destinations = [
   {
     name: 'New Zealand',
     slug: 'new-zealand',
-    image: '/LinkWave/nz.jpeg',
+    image: 'nz.jpeg',
     description: 'All 8 universities in global top 3% with safe environment, work rights during study, and pathway to residency.'
   },
   {
     name: 'European Countries',
     slug: 'eu',
-    image: '/LinkWave/eu.png',
+    image: 'eu.png',
     description: '27 countries, one visa. Free or low-cost tuition at top-ranked universities with English-taught programs and rich cultural diversity across the Schengen area.'
   },
   {
   name: 'South Korea',
   slug: 'south-korea',
-  image: '/LinkWave/korea.jpeg',
+  image: 'korea.jpeg',
   description: 'Global leader in technology and innovation with world-class universities. KGSP scholarships available for international students with affordable tuition and gateway to Asian markets.'
   },
 ];
@@ -68,7 +68,7 @@ const destinations = [
     <div class="container">
       <div class="destinations-grid">
         {destinations.map(dest => (
-          <a href={`/LinkWave/study-in-${dest.slug}`} class="dest-card reveal">
+          <a href={`study-in-${dest.slug}`} class="dest-card reveal">
             <div class="dest-card-bg" style={`background-image: url('${dest.image}')`}></div>
             <div class="dest-card-overlay"></div>
             <div class="dest-card-content">
@@ -87,7 +87,7 @@ const destinations = [
       <h2>Not Sure Where to Start?</h2>
       <p>Our expert counselors will help you find the perfect destination based on your goals, budget, and preferences.</p>
       <div class="cta-buttons">
-        <a href="/LinkWave/contact-us" class="btn btn-primary" style="background: var(--primary-white); color: var(--secondary);">Get Free Consultation</a>
+        <a href="contact-us" class="btn btn-primary" style="background: var(--primary-white); color: var(--secondary);">Get Free Consultation</a>
         <a href="tel:+9779851410481" class="btn btn-outline-white">+977 9851410481</a>
       </div>
     </div>
