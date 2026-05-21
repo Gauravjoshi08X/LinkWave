@@ -54,7 +54,7 @@ export const countries = {
         flag: '🇪🇺',
         govLink: 'https://education.ec.europa.eu',
         govLabel: 'European Education Area',
-        banner: '/https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3NodXR0ZXJzdG9jay0yNTExNjA4NTE3LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6ODI4fX19',
+        banner: 'https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3NodXR0ZXJzdG9jay0yNTExNjA4NTE3LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6ODI4fX19',
         capital: 'Brussels (de facto)',
         currency: 'Euro (EUR)',
         languages: 'Germany',
