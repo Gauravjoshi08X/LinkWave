@@ -68,7 +68,7 @@ const destinations = [
     <div class="container">
       <div class="destinations-grid">
         {destinations.map(dest => (
-          <a href=/{`study-in-${dest.slug}`} class="dest-card reveal">
+          <a href={`/study-in-${dest.slug}`} class="dest-card reveal">
             <div class="dest-card-bg" style={`background-image: url('${dest.image}')`}></div>
             <div class="dest-card-overlay"></div>
             <div class="dest-card-content">
