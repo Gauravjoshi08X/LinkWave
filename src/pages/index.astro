@@ -345,7 +345,7 @@ const news = await fetchNews();
       {news.length > 0 ? (
         <div class="news-grid">
           {news.slice(0, 4).map(item => (
-            <a href={`news/${item.documentId}`} class="news-card reveal">
+            <a href={`/news/${item.documentId}`} class="news-card reveal">
               {item.bannerUrl && (
                 <img 
                   src={item.bannerUrl} 
