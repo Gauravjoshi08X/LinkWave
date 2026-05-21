@@ -5,7 +5,7 @@ const destinations = [
   {
     name: 'Australia',
     slug: 'australia',
-    image: 'aus.jpeg',
+    image: '/aus.jpeg',
     description: '7 of world\'s top 100 universities with multicultural environment and post-study work rights up to 4 years.'
   },
   {
@@ -68,7 +68,7 @@ const destinations = [
     <div class="container">
       <div class="destinations-grid">
         {destinations.map(dest => (
-          <a href={`study-in-${dest.slug}`} class="dest-card reveal">
+          <a href=/{`study-in-${dest.slug}`} class="dest-card reveal">
             <div class="dest-card-bg" style={`background-image: url('${dest.image}')`}></div>
             <div class="dest-card-overlay"></div>
             <div class="dest-card-content">
