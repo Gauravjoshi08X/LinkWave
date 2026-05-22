@@ -119,7 +119,7 @@ export const countries = {
       flag: '🇯🇵',
       govLink: 'https://www.studyinjapan.go.jp',
       govLabel: 'Study in Japan Official Portal',
-      banner: '/https://ychef.files.bbci.co.uk/1280x640/p08bkzzz.jpeg',
+      banner: 'https://ychef.files.bbci.co.uk/1280x640/p08bkzzz.jpeg',
       capital: 'Tokyo',
       currency: 'Japanese Yen (JPY)',
       languages: 'Japanese',
