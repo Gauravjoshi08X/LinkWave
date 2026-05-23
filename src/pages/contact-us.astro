@@ -88,6 +88,7 @@ import MainLayout from '../layouts/MainLayout.astro';
     const destination = rawData.get('destination') || '';
     const course = rawData.get('course') || '';
     const message = rawData.get('message')?.trim() || '';
+    const location = rawData.get('location')?.trim() || '';
 
     // Validate
     if (!name || !email) {
@@ -115,6 +116,7 @@ import MainLayout from '../layouts/MainLayout.astro';
         destination,
         course,
         message,
+        location
       }
     };
 
