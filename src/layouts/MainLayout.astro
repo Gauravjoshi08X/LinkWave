@@ -120,13 +120,13 @@ const { title, description, image } = Astro.props;
   
   <title>{title}</title>
   <meta name="description" content={description} />
-  
+  <link rel="canonical" href={`https://linkwaveedu.com${Astro.url.pathname}`} />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href={`https://gauravjoshi08x.github.io/LinkWave${Astro.url.pathname}`} />
+
   
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
-    <meta property="og:url" content={`https://gauravjoshi08x.github.io/LinkWave${Astro.url.pathname}`} />
+    <meta property="og:url" content={`https://linkwaveedu.com${Astro.url.pathname}`} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Link Wave Global Study" />
@@ -147,6 +147,7 @@ const { title, description, image } = Astro.props;
   
   <!-- Preload hero image -->
   <link rel="preload" as="image" href="home.jpeg" />
+  <link rel="preload" as="image" href="/LinkWave/banner230.jpeg" />
 </head>
 
 <body>
