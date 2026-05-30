@@ -8,7 +8,7 @@ function getUniImage(name) {
     'Columbia University': 'https://www.appily.com/sites/default/files/styles/max_1200/public/images/hero/college/190150_hero.jpg?itok=xJZlqHGh',
     'University of Oxford': 'https://accommodationforstudents.com/cdn-cgi/image/f=auto,q=85,w=1200/https://images.accommodationforstudents.com/website/university-guides/gb/university-of-oxford/uni.jpg',
     'University of Cambridge': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRekVTkSDef8mA9TJ685PoaFyh6pWOPg20vvA&s',
-    'Imperial College London': 'https://archglobals.com/wp-content/uploads/2024/03/Imperial-venues.jpg',
+    'Imperial College London': 'https://www.imperial.ac.uk/newsarchive/images/main/newseventsimage_1750320894168_mainnews2012_x1.jpg',
     'UCL (University College London)': 'https://www.russellgroup.ac.uk/sites/default/files/2025-01/UCLs%20Summer%20Celebration-153%20%281%29.jpg',
     'University of Edinburgh': 'https://accommodationforstudents.com/cdn-cgi/image/f=auto,q=85,w=960/https://images.accommodationforstudents.com/website/university-guides/gb/university-of-edinburgh/uni.jpg',
     'University of Toronto': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSprR09-3imgHb8Urp1KE4QUfb_-sEHYPAwRA&s',
